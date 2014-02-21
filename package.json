@@ -1,0 +1,20 @@
+{
+  "name": "littlebits-cloud-api-docs",
+  "private": true,
+  "version": "0.0.3",
+  "description": "littleBits Cloud REST API Documentation",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:littlebitselectronics/"
+  },
+  "contributors": [
+    "Jason Kuhrt <jasonkuhrt@me.com>",
+    "Colin Vernon <colin@littlebits.cc>"
+  ],
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "hapi": "~2.1.2",
+    "jade": "~0.35.0",
+    "marked": "~0.2.9"
+  }
+}
