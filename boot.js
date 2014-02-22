@@ -7,7 +7,7 @@ hapi = require('hapi');
 
 config = {
   version: package_json.version,
-  port: Number(process.env.ENV_PORT) || 800,
+  port: Number(process.env.ENV_PORT) || 80,
   paths: {
     assets: "" + __dirname + "/assets"
   }
