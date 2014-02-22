@@ -9,7 +9,7 @@ os = require('os');
 
 config = {
   version: package_json.version,
-  port: Number(process.env.PORT) || 80,
+  port: +process.env.PORT || 80,
   paths: {
     assets: "" + __dirname + "/assets"
   }
@@ -25,13 +25,7 @@ server_config = {
   }
 };
 
-switch (process.env.NODE_ENV) {
-  case 'dev':
-    server = hapi.createServer('localhost', config.port, server_config);
-    break;
-  default:
-    server = hapi.createServer(+process.env.PORT, server_config);
-}
+server = hapi.createServer(config.port, server_config);
 
 server.route({
   path: '/assets/{path*}',

@@ -3,7 +3,7 @@ hapi = require('hapi')
 os = require('os')
 config =
   version: package_json.version
-  port: Number(process.env.PORT) or 80
+  port: +process.env.PORT or 80
   paths:
     assets: "#{__dirname}/assets"
 
@@ -16,12 +16,8 @@ server_config =
     engines:
       jade: 'jade'
     path: "#{__dirname}/"
-# server = hapi.createServer( 'localhost', config.port, server_config )
-# module.exports = server
 
-switch process.env.NODE_ENV
-  when 'dev' then server = hapi.createServer( 'localhost', config.port, server_config )
-  else server = hapi.createServer( +process.env.PORT, server_config )
+server = hapi.createServer( config.port, server_config )
 
 
 # Routes
