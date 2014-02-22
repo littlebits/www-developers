@@ -5,7 +5,7 @@
   "description": "littleBits Cloud REST API Documentation",
   "repository": {
     "type": "git",
-    "url": "git@github.com:littlebitselectronics/"
+    "url": "git@github.com:littlebitselectronics/cloud-api-docs"
   },
   "contributors": [
     "Jason Kuhrt <jasonkuhrt@me.com>",

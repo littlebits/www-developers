@@ -32,7 +32,7 @@ server.route
     auth: false
 
 server.route
-  path: '/docs'
+  path: '/rest-api'
   method: 'get'
   handler:
     view: './views/index'
