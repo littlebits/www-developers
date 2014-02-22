@@ -2,7 +2,7 @@ package_json = require('./package')
 hapi = require('hapi')
 config =
   version: package_json.version
-  port: Number(process.env.ENV_PORT) or 8000
+  port: Number(process.env.ENV_PORT) or 800
   paths:
     assets: "#{__dirname}/assets"
 
