@@ -1,8 +1,9 @@
 package_json = require('./package')
 hapi = require('hapi')
+os = require('os')
 config =
   version: package_json.version
-  port: process.env.ENV_PORT or 8000
+  port: process.env.PORT or 8000
   paths:
     assets: "#{__dirname}/assets"
 
@@ -42,3 +43,5 @@ server.route
     auth: false
 
 server.start()
+
+console.log('Server is running at http://' + os.hostname() + ":" + port);
