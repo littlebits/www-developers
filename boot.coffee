@@ -21,7 +21,7 @@ server_config =
 
 switch process.env.NODE_ENV
   when 'dev' then server = hapi.createServer( 'localhost', config.port, server_config )
-  else server = hapi.createServer( server_config )
+  else server = hapi.createServer( +process.env.PORT, server_config )
 
 
 # Routes

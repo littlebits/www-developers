@@ -30,7 +30,7 @@ switch (process.env.NODE_ENV) {
     server = hapi.createServer('localhost', config.port, server_config);
     break;
   default:
-    server = hapi.createServer(server_config);
+    server = hapi.createServer(+process.env.PORT, server_config);
 }
 
 server.route({
