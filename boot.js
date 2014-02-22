@@ -33,8 +33,6 @@ switch (process.env.NODE_ENV) {
     server = hapi.createServer(server_config);
 }
 
-console.log('Server is running at http://' + os.hostname() + ":" + config.port);
-
 server.route({
   path: '/assets/{path*}',
   method: 'get',
@@ -60,4 +58,6 @@ server.route({
   }
 });
 
-server.start();
+server.start(function() {
+  return console.log('Server is running at http://' + os.hostname() + ":" + config.port);
+});

@@ -23,7 +23,6 @@ switch process.env.NODE_ENV
   when 'dev' then server = hapi.createServer( 'localhost', config.port, server_config )
   else server = hapi.createServer( server_config )
 
-console.log('Server is running at http://' + os.hostname() + ":" + config.port);
 
 # Routes
 
@@ -45,5 +44,5 @@ server.route
   config:
     auth: false
 
-server.start()
+server.start(-> console.log('Server is running at http://' + os.hostname() + ":" + config.port))
 

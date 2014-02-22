@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.3",
   "description": "littleBits Cloud REST API Documentation",
+  "main": "boot.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:littlebitselectronics/cloud-api-docs"
