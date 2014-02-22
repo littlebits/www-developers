@@ -44,4 +44,4 @@ server.route
 
 server.start()
 
-console.log('Server is running at http://' + os.hostname() + ":" + port);
+console.log('Server is running at http://' + os.hostname() + ":" + config.port);
