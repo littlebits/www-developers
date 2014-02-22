@@ -7,7 +7,7 @@ boot:
 	PORT=8000 foreman start
 
 dev:
-	PORT=8000 foreman start -f Procfile.dev 
+	PORT=8000 NODE_ENV=dev foreman start -f Procfile.dev 
 
 build:
 	coffee --compile --bare --output ./ ./
