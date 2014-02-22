@@ -15,6 +15,8 @@ config = {
   }
 };
 
+console.log('Server is running at http://' + os.hostname() + ":" + config.port);
+
 server_config = {
   views: {
     isCached: false,
@@ -59,5 +61,3 @@ server.route({
 });
 
 server.start();
-
-console.log('Server is running at http://' + os.hostname() + ":" + config.port);

@@ -7,6 +7,7 @@ config =
   paths:
     assets: "#{__dirname}/assets"
 
+console.log('Server is running at http://' + os.hostname() + ":" + config.port);
 
 # Create HTTP Server
 
@@ -44,4 +45,3 @@ server.route
 
 server.start()
 
-console.log('Server is running at http://' + os.hostname() + ":" + config.port);
