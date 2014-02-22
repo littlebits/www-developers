@@ -7,7 +7,7 @@ hapi = require('hapi');
 
 config = {
   version: package_json.version,
-  port: process.env.ENV_PORT || 80,
+  port: process.env.ENV_PORT || 8000,
   paths: {
     assets: "" + __dirname + "/assets"
   }
@@ -23,9 +23,13 @@ server_config = {
   }
 };
 
-server = hapi.createServer('localhost', config.port, server_config);
-
-module.exports = server;
+switch (process.env.NODE_ENV) {
+  case 'dev':
+    server = hapi.createServer('localhost', config.port, server_config);
+    break;
+  default:
+    server = hapi.createServer(server_config);
+}
 
 server.route({
   path: '/assets/{path*}',
