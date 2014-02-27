@@ -1,12 +1,10 @@
-#$coffee = ./node_modules/.bin/coffee
-# dev:
-# 	NODE_ENV=dev ${$coffee} boot.coffee
+$nodedev = ./node_modules/.bin/node-dev
 
 dev:
-	PORT=8000 NODE_ENV=dev foreman start -f Procfile.dev
+	PORT=8000 NODE_ENV=dev ${$nodedev} ./server
 
-build:
-	coffee --compile --bare --output ./ ./
+devforeman:
+	PORT=8000 NODE_ENV=dev foreman start -f Procfile.dev
 
 deploy:
 	git push heroku master

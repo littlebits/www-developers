@@ -4,6 +4,9 @@
   "version": "0.0.3",
   "description": "littleBits Cloud REST API Documentation",
   "main": "boot.js",
+  "scripts": {
+    "start": "make dev"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:littlebitselectronics/cloud-api-docs"
@@ -17,5 +20,8 @@
     "jade": "~0.35.0",
     "marked": "~0.2.9",
     "hapi": "~2.6.0"
+  },
+  "devDependencies": {
+    "node-dev": "~2.1.6"
   }
 }
