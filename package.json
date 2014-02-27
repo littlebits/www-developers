@@ -14,8 +14,8 @@
   ],
   "dependencies": {
     "coffee-script": "~1.6.3",
-    "hapi": "~2.1.2",
     "jade": "~0.35.0",
-    "marked": "~0.2.9"
+    "marked": "~0.2.9",
+    "hapi": "~2.6.0"
   }
 }
