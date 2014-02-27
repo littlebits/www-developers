@@ -28,16 +28,10 @@ server_config = {
 server = hapi.createServer(config.port, server_config);
 
 server.route({
-  path: '/assets/{path*}',
+  path: '/',
   method: 'get',
-  handler: {
-    directory: {
-      listing: true,
-      path: "" + __dirname + "/public/"
-    }
-  },
-  config: {
-    auth: false
+  handler: function(req, reply) {
+    reply.redirect('/rest-api');
   }
 });
 
@@ -46,9 +40,16 @@ server.route({
   method: 'get',
   handler: {
     view: './views/index'
-  },
-  config: {
-    auth: false
+  }
+});
+
+server.route({
+  path: '/assets/{path*}',
+  method: 'get',
+  handler: {
+    directory: {
+      path: "" + __dirname + "/public/"
+    }
   }
 });
 

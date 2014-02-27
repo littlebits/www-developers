@@ -23,22 +23,24 @@ server = hapi.createServer( config.port, server_config )
 # Routes
 
 server.route
-  path: '/assets/{path*}'
+  path: '/'
   method: 'get'
-  handler:
-    directory:
-      listing: true
-      path: "#{__dirname}/public/"
-  config:
-    auth: false
-
+  handler: (req, reply)->
+    reply.redirect('/rest-api')
+    return
+    
 server.route
   path: '/rest-api'
   method: 'get'
   handler:
     view: './views/index'
-  config:
-    auth: false
+
+server.route
+  path: '/assets/{path*}'
+  method: 'get'
+  handler:
+    directory:
+      path: "#{__dirname}/public/"
 
 server.start(-> console.log('Server is running at http://' + os.hostname() + ":" + config.port))
 
