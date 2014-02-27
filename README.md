@@ -1,14 +1,14 @@
-cloud-api-docs
-==============
+# cloud-api-docs
 
-Develop:
-```
-make dev
-```
-[http://localhost:8000/rest-api](http://localhost:8000/rest-api)
+Developer portal for all things littleBits Cloud.
 
-Deploy:
-```
-make build
-make deploy
-```
+
+#### Develop
+
+    make dev
+
+Then navigate to: [http://localhost:8000/rest-api](http://localhost:8000/rest-api).
+
+#### Deploy
+
+    make deploy
