@@ -8,12 +8,12 @@ module.exports = function(server){
     path: '/',
     method: 'get',
     handler: function(request, reply) {
-      reply().redirect('/rest-api');
+      reply().redirect('/api-rest');
     }
   });
 
   server.route({
-    path: '/rest-api',
+    path: '/api-rest',
     method: 'get',
     handler: {
       view: 'index'
