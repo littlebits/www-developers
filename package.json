@@ -1,7 +1,7 @@
 {
   "name": "littlebits-cloud-api-docs",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "littleBits Cloud REST API Documentation",
   "main": "boot.js",
   "scripts": {
@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "jade": "~0.35.0",
-    "marked": "~0.2.9",
+    "marked": "~0.2.10",
     "hapi": "~2.6.0"
   },
   "devDependencies": {

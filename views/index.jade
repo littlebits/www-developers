@@ -8,6 +8,5 @@ html
     link(href="/assets/heading-anchors.css" rel="stylesheet" type="text/css")
     script(src="/assets/heading-anchors.js")
   body
-    include cloud-api-spec.md
-
+    .content!= content
     script HeadingAnchors.init()
