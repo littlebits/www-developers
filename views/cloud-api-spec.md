@@ -1,12 +1,36 @@
-# littleBits Cloud REST API
-## General Overview
+# littleBits Cloud REST API Documentation
 
-This is the HTTP REST API for the littleBits Cloud. 
+## Authorization
 
-Every request to the API must contain an Authorization http header bearing an auth token. 
+Authorization is a standard OAuth 2 system.
 
-- JSON for data
-- OAuth 2 for authorization
+Every request ***must*** contain an `Authorization` http header bearing an auth token.
+
+Example:
+
+    curl -i -XGET -H "Authorization: Bearer foobar" ...
+
+
+## Version
+Available versions are:
+
+- master
+- 1
+
+Every request *should* specify an `Accept` header that pins the api version.
+
+Version `master` is bleeding edge, changes regularly, and makes no guarantees (performance, backwards compatibility, stability, documentation, etc.).
+
+Beware, if you omit `version` it defaults to `master`.
+
+Example:
+
+    curl -i -XGET -H "Accept: application/vnd.littlebits.v1+json" ...
+
+
+## Resources
+- There is a [dummy OAuth-client](http://oauth-client.herokuapp.com/) to create access tokens.
+- IFTTT can read a document pertaining to their "test environment" on Bitcloud: [link](https://docs.google.com/document/d/1crvK5JA0u3GDzlwTiWoKWGfcD-mGzulUltr95R9a6AE/edit)
 
 ## Endpoints Overview
 ```
@@ -24,7 +48,7 @@ path                    Scope   Code Payload ◆        Make Bitcloud...
     /output
       POST              write   200                   output some voltage on the given cloudbit
     /subscriptions
-      GET               read    200  [<String:URI>]   return a list of the publishers to which given cloudbit is subscribed
+      GET               read    200  [<Str:URI>]   return a list of the publishers to which given cloudbit is subscribed
       POST              read    201                   publish given cloudbit events to given endpoint
       DELETE            read    200                   stop publishing given cloudbit events to a given endpoint
     /activate
@@ -38,7 +62,7 @@ path                    Scope   Code Payload ◆        Make Bitcloud...
 ◆ [Objects Schemas](#object-schemas)
 ## /api/cloudbits/{cloudbitid}
 ### GET
-**Returns** and `Array` of cloudbit objects:
+**Returns** an `Array` of cloudbit objects:
 ```
 [
     {
@@ -64,14 +88,14 @@ path                    Scope   Code Payload ◆        Make Bitcloud...
 ### POST
 ```
 ? amount
-  | <Integer:Range:0-1023>       –––– an absolute value within the DAC range
-  | <IntegerString:Range:0-100%> –––– a percentage of the DAC range
-  | <String:Level>               –––– a labeled 'level' of the DAC range
+  | <Int:Range:0-1023>       –––– an absolute value within the DAC range
+  | <IntStr:Range:0-100%> –––– a percentage of the DAC range
+  | <Str:Level>               –––– a labeled 'level' of the DAC range
                                     - Levels: 'active', 'idle'
   – default: 'active'
 
 ? duration_ms:
-  | <Integer>                    –––– output will be sustained for given milliseconds
+  | <Int>                    –––– output will be sustained for given milliseconds
                                     – if the duration_ms is < 0 it is floored to 0
   - default: 500
 ```
@@ -138,7 +162,7 @@ TODO: we should at least show all relevant subscriptions at /subscriptions, whet
 
 ### DELETE
 ```
-? subscriber_id: <String:URI> –– Specific Endpoint to unsubscribe
+? subscriber_id: <Str:URI> –– Specific Endpoint to unsubscribe
                                - If omitted then ALL endpoints will be unsubscribed
 ```
 
@@ -153,7 +177,7 @@ TODO: we should at least show all relevant subscriptions at /subscriptions, whet
 
 ### POST
 ```
-! subscriber_id: <String:URI> –– An endpoint that bitcloud will POST event data to
+! subscriber_id: <Str:URI> –– An endpoint that bitcloud will POST event data to
 ? publisher_events: [<Event>] –– Channels to subscribe to
                                - Default: ['amplitude:delta:ignite']
 ```
@@ -163,7 +187,7 @@ Notes:
 Each channel is POSTed to individually. For example if a client were to include "connection" and "amplitude" channels in their subscription they could receive POSTs for either channel but never a single POST for both channels simultaneously
 
 Payload sent to subscriber_id:
-    {"bit_id":<String>, "user_id":<Int>, "timestamp":<Int>, "type":"amplitude", "payload":<Amplitude>}
+    {"bit_id":<Str>, "user_id":<Int>, "timestamp":<Int>, "type":"amplitude", "payload":<Amplitude>}
 
 **Returns** a summary of what was just POSTed:
 ```
@@ -244,25 +268,16 @@ POSTed to subscriber:
 
 
 ## Object Schemas
-```
-Cloudbit:
-  id:     <String>              ––––  code that identifies *this* cloudbit
-                                      Unique among all cloudbits and guaranteed to not change
-  user_id: <Integer>            ––––  Code that identifies a Little Bits user.
-                                      Typically does not change except during activation/deactivation
-  label:  <String>              ––––  Memorable user-chosen label so that the user can easily identify the cloudbit
-                                      Unique among the user's cloudBits
-  subscribers: [<String:URI>]   ––––  clients subscribed to this cloudbit
+##### `bit`
 
+    id:           <Str>
+    user_id:      <Int>            ––––   Code that identifies the owner (littleBits user).
+    label:        <Str>            ––––   User-chosen label, unique among the user's bits.
+    subscribers: [<Str:URI>]       ––––   Clients subscribed to this bit
 
-Amplitude:
-  absolute: <Integer:0-1023>
-  percent:  <Float:0-100>
-  level:    <String:('active'|'idle')>
-  delta:    <String:('nap'|'release'|'ignite'|'sustain')>   # shift?
-```
+##### `amplitude`
 
-
-## Resources
-- There is a [dummy OAuth-client](http://oauth-client.herokuapp.com/) to create access tokens.
-- IFTTT can read a document pertaining to their "test environment" on Bitcloud: [link](https://docs.google.com/document/d/1crvK5JA0u3GDzlwTiWoKWGfcD-mGzulUltr95R9a6AE/edit)
+    absolute:     <Int:0-1023>
+    percent:      <Float:0-100>
+    level:        <Str:('active'|'idle')>
+    delta:        <Str:('nap'|'release'|'ignite'|'sustain')>   # shift?
