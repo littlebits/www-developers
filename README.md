@@ -1,14 +1,18 @@
-# cloud-api-docs
+# cloud-developers
 
 littleBits Cloud developer community.
 
+## Installation
 
-#### Developing
+    git clone git@github.com:littlebitselectronics/cloud-api-docs.git cloud-developers \
+    && cd cloud-developers \
+    && npm install
+
+
+## Developing
 
     make dev
 
-Then navigate to: [http://localhost:8000/rest-api](http://localhost:8000/rest-api).
-
-#### Deploying
+## Deploying
 
     make deploy
