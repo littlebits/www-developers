@@ -26,6 +26,12 @@ Example:
 
     curl -i -XGET -H "Accept: application/vnd.littlebits.v1+json" ...
 
+For quick experimentation purposes only the `version` can be specified at the URI root too:
+
+Example:
+
+    curl -i XGET ... api-rest.littlebits.cc/v1/cloudbits
+
 
 ## Resources
 - There is a [dummy OAuth-client](http://oauth-client.herokuapp.com/) to create access tokens.
