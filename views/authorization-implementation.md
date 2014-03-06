@@ -2,7 +2,7 @@
 
 Legend
 
-    AS = Authorization Server (http://littlebits.com/oauth/authorize)
+    AS = Authorization Server (http://littlebits.cc/oauth/authorize)
     RS = Resource Server
     RO = Resource Owner
     C = Client
