@@ -1,7 +1,7 @@
 {
   "name": "littlebits-cloud-api-docs",
   "private": true,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "littleBits Cloud REST API Documentation",
   "main": "boot.js",
   "scripts": {
