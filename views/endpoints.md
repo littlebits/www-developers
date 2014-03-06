@@ -44,13 +44,11 @@ Example:
                             OAuth   HTTP
     path                    Scope   Code Payload ◆        Make Bitcloud...
     ----                    -----   ---- ---------        ----------------
-    /api/cloudbits
+    /cloudbits
       GET                   read    200  [<Cloudbit>]     return a list of the users cloudbits
-      /{cloudbitid}
+      /{bit_id}
         GET                 read    200  <Cloudbit>       return model for the given cloudbit
         PUT                 admin   200  <Cloudbit>       Update the given cloudbit's model
-        POST                --      201  <Cloudbit>       add the given cloudbit to the database
-        DELETE              --      200  <Cloudbit>       remove the given cloudbit from the databse
         /output
           POST              write   200                   output some voltage on the given cloudbit
         /subscriptions
@@ -58,16 +56,16 @@ Example:
           POST              read    201                   publish given cloudbit events to given endpoint
           DELETE            read    200                   stop publishing given cloudbit events to a given endpoint
         /activate
-          POST              admin   200  <Cloudbit>       activate the given cloudbit; this will associate the cloudbit with 
-                                                          the user's account typically going to be done by a user one time 
+          POST              admin   200  <Cloudbit>       activate the given cloudbit; this will associate the cloudbit with
+                                                          the user's account typically going to be done by a user one time
                                                           after buying a cloudbit
-          DELETE            admin   200  <Cloudbit>       deactivate the given cloudbit; this will disassociate the cloudbit 
-                                                          from the user's account it is then possible for any user to activate 
+          DELETE            admin   200  <Cloudbit>       deactivate the given cloudbit; this will disassociate the cloudbit
+                                                          from the user's account it is then possible for any user to activate
                                                           it again
 
 ◆ [Objects Schemas](#object-schemas)
 
-## /api/cloudbits/{cloudbitid}
+## /cloudbits/{bit_id}
 
 ### GET
 
@@ -93,7 +91,7 @@ Example:
     ]
 
 
-## /api/cloudbits/{cloudbitid}/output
+## /cloudbits/{bit_id}/output
 ### POST
 
     ? amount
@@ -141,7 +139,7 @@ or error:
     output at DAC 1023 (AKA "100%") for half-a-second
     {"amount":1023}
 
-## /api/cloudbits/{cloudbitid}/subscriptions
+## /cloudbits/{bit_id}/subscriptions
 ### GET
 **Returns** an `Array` of subscription objects:
 
@@ -165,7 +163,7 @@ or error:
 
 Note:
 
-If you create a subscription at /api/cloudbits/000001/subscriptions { subscriber_id:"000002" }, and then GET subscriptions for 000001, you won’t see the subscription you just created! This seems broken but isn’t: GET /subscriptions is showing from the publisher’s perspective. You will see this subscription by /api/cloudbits/000002/subscriptions.
+If you create a subscription at /cloudbits/000001/subscriptions { subscriber_id:"000002" }, and then GET subscriptions for 000001, you won’t see the subscription you just created! This seems broken but isn’t: GET /subscriptions is showing from the publisher’s perspective. You will see this subscription by /cloudbits/000002/subscriptions.
 
 TODO: we should at least show all relevant subscriptions at /subscriptions, whether the given cloudbit is the publisher or subscriber in the relationship. Then we should consider changing this more fundamentally to make more sense and be more RESTful.
 
@@ -248,7 +246,7 @@ All Examples pertain to this scenario:
 ```
 Client subscribes... (Substitute "..." with examples below)
 > POST
-  uri: https://cloud.littlebits.cc/api/cloudbits/000001/subscriptions
+  uri: https://cloud.littlebits.cc/cloudbits/000001/subscriptions
   payload: { subscriber_id: 'http://foo.com/bar', publisher_events: ... }
 
 When events occur, Cloud publishes... (substitute "..." with examples below)
