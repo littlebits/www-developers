@@ -1,4 +1,4 @@
-# littleBits Cloud REST API Documentation
+# littleCloudbits Cloud REST API Documentation
 
 ## Authorization
 
@@ -41,27 +41,25 @@ Example:
 
 ## Endpoints Overview
                                     ---Responds---
-                            OAuth   HTTP
-    path                    Scope   Code Payload ◆        Make Bitcloud...
-    ----                    -----   ---- ---------        ----------------
+                                  OAuth   HTTP
+    path                          Scope   Code Payload ◆       Make LB Cloud...
+    ----                          -----   ---- ---------       ----------------
     /cloudbits
-      GET                   read    200  [<Cloudbit>]     return a list of the users cloudbits
-      /{bit_id}
-        GET                 read    200  <Cloudbit>       return model for the given cloudbit
-        PUT                 admin   200  <Cloudbit>       Update the given cloudbit's model
-        /output
-          POST              write   200                   output some voltage on the given cloudbit
-        /subscriptions
-          GET               read    200  [<Str:URI>]   return a list of the publishers to which given cloudbit is subscribed
-          POST              read    201                   publish given cloudbit events to given endpoint
-          DELETE            read    200                   stop publishing given cloudbit events to a given endpoint
-        /activate
-          POST              admin   200  <Cloudbit>       activate the given cloudbit; this will associate the cloudbit with
-                                                          the user's account typically going to be done by a user one time
-                                                          after buying a cloudbit
-          DELETE            admin   200  <Cloudbit>       deactivate the given cloudbit; this will disassociate the cloudbit
-                                                          from the user's account it is then possible for any user to activate
-                                                          it again
+      GET                         read    200  [<Cloudbit>]    return a list of the users cloudbits
+
+        /{bit_id}
+          GET                     read    200  <Cloudbit>      return cloudbit model
+          PUT                     admin   200  <Cloudbit>      update cloudbit model
+          POST                    admin   201  <Cloudbit>      activate cloudbit, is then associated to the user
+          DELETE                  admin   200  <Cloudbit>      deactivate cloudbit, is then associated to no body
+
+              /output
+                POST              write   200                  output some voltage on the given cloudbit
+
+              /subscriptions
+                GET               read    200  [<Str:URI>]     return cloudbit's subscriptions
+                POST              read    201                  publish given cloudbit events to given endpoint
+                DELETE            read    200                  stop publishing given cloudbit events to a given endpoint
 
 ◆ [Objects Schemas](#object-schemas)
 
@@ -212,7 +210,7 @@ Payload sent to subscriber_id:
 >
     - The given subscriber_id MUST respond with HTTP 200 within 15s [if it is a URI subscriber]
 >
-    - For any other response (including 15s timeout) Bitcloud
+    - For any other response (including 15s timeout) Cloudbitcloud
        will exponentially backoff 8 times until finally deleting
        the subscription (note: not banned, it may re-subscribe)
 >
@@ -275,16 +273,17 @@ POSTed to subscriber:
 
 
 ## Object Schemas
-##### `bit`
+##### `cloudbit`
 
-    id:           <Str>
-    user_id:      <Int>            ––––   Code that identifies the owner (littleBits user).
-    label:        <Str>            ––––   User-chosen label, unique among the user's bits.
-    subscribers: [<Str:URI>]       ––––   Clients subscribed to this bit
+    id:            <Str>
+    user_id:       <Int>             ––––   Code that identifies the owner (littleCloudbits user).
+    label:         <Str>             ––––   User-chosen label, unique among the user's bits.
+    subscribers:   [<Str:URI>]       ––––   Clients subscribed to this bit
+    subscriptions: [<Str:URI>]       ––––   Clients this bit is subscribed to
 
 ##### `amplitude`
 
     absolute:     <Int:0-1023>
     percent:      <Float:0-100>
     level:        <Str:('active'|'idle')>
-    delta:        <Str:('nap'|'release'|'ignite'|'sustain')>   # shift?
+    delta:        <Str:('nap'|'release'|'ignite'|'sustain')>
