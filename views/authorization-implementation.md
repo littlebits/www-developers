@@ -1,4 +1,4 @@
-# Cloud REST API auth implementation overview
+# littleBits Cloud http API oAuth implementation overview
 
 Legend
 

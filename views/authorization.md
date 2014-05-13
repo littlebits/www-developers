@@ -1,4 +1,4 @@
-# Cloud REST API auth
+# littleBits Cloud http API oAuth
 
 littleBits uses oAuth2, via the [Doorkeeper](https://github.com/applicake/doorkeeper) gem. It is strongly suggested to read the wiki since this document only describe elements specific to the littleBits implementation. The implementation was tested using the oAuth2 gem (following the example provided in the Doorkeeper wiki).
 

@@ -17,24 +17,31 @@ module.exports = function(server){
     path: '/',
     method: 'get',
     handler: function(request, reply) {
-      reply().redirect('/api-rest');
+      reply().redirect('/api-http');
     }
   });
+    server.route({
+      path: '/api-rest',
+      method: 'get',
+      handler: function(request, reply) {
+        reply().redirect('/api-http');
+      }
+    });
 
   server.route({
-    path: '/api-rest',
+    path: '/api-http',
     method: 'get',
     handler: serve_file_md('endpoints.md')
   });
 
   server.route({
-    path: '/api-rest/auth',
+    path: '/api-http/auth',
     method: 'get',
     handler: serve_file_md('authorization.md')
   });
 
   server.route({
-    path: '/api-rest/auth-implementation',
+    path: '/api-http/auth-implementation',
     method: 'get',
     handler: serve_file_md('authorization-implementation.md')
   });

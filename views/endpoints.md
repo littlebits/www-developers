@@ -1,4 +1,4 @@
-# littleCloudbits Cloud REST API Documentation
+# littleBits Cloud http API Documentation
 
 ## Authorization
 
@@ -30,13 +30,13 @@ For quick experimentation purposes only the `version` can be specified at the UR
 
 Example:
 
-    curl -i XGET ... api-rest.littlebitscloud.cc/v1/cloudbits
+    curl -i XGET ... api-http.littlebitscloud.cc/v1/cloudbits
 
 
 ## Resources
 - There is a [dummy OAuth-client](http://oauth-client.herokuapp.com/) to create access tokens.
-- [auth docs](/api-rest/auth)
-- [auth implementation docs](/api-rest/auth-implementation)
+- [auth docs](/api-http/auth)
+- [auth implementation docs](/api-http/auth-implementation)
 
 
 ## Endpoints Overview
@@ -244,7 +244,7 @@ All Examples pertain to this scenario:
 ```
 Client subscribes... (Substitute "..." with examples below)
 > POST
-  uri: https://api-rest.littlebitscloud.cc/cloudbits/000001/subscriptions
+  uri: https://api-http.littlebitscloud.cc/cloudbits/000001/subscriptions
   payload: { subscriber_id: 'http://foo.com/bar', publisher_events: ... }
 
 When events occur, Cloud publishes... (substitute "..." with examples below)
