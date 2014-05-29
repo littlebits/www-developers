@@ -13,8 +13,9 @@ Example:
 ## Version
 Available versions are:
 
-- master
-- 1
+- master [default]
+- v2
+- v1
 
 Every request *should* specify an `Accept` header that pins the api version.
 
@@ -30,7 +31,7 @@ For quick experimentation purposes only the `version` can be specified at the UR
 
 Example:
 
-    curl -i XGET ... api-http.littlebitscloud.cc/v1/cloudbits
+    curl -i XGET ... api-http.littlebitscloud.cc/v1/devices
 
 
 ## Resources
@@ -42,32 +43,32 @@ Example:
 ## Endpoints Overview
                                     ---Responds---
                                   OAuth   HTTP
-    path                          Scope   Code Payload ◆       Make LB Cloud...
-    ----                          -----   ---- ---------       ----------------
-    /cloudbits
-      GET                         read    200  [<Cloudbit>]    return a list of the users cloudbits
-
-        /{bit_id}
-          GET                     read    200  <Cloudbit>      return cloudbit model
-          PUT                     admin   200  <Cloudbit>      update cloudbit model
-          POST                    admin   201  <Cloudbit>      activate cloudbit, is then associated to the user
-          DELETE                  admin   200  <Cloudbit>      deactivate cloudbit, is then associated to no body
-
-              /output
-                POST              write   200                  output some voltage on the given cloudbit
-
-              /subscriptions
-                GET               read    200  [<Str:URI>]     return cloudbit's subscriptions
-                POST              read    201                  publish given cloudbit events to given endpoint
-                DELETE            read    200                  stop publishing given cloudbit events to a given endpoint
+    path                          Scope   Code  Payload ◆       Make LB Cloud...
+    ----                          -----   ----  ---------       ----------------
+    /devices                                    
+      GET                         read    200   [<devices>]    return a list of the user’s devices
+                                                
+        /{device_id}                            
+          GET                     read    200   <device>       return device model
+          PUT                     admin   200   <device>       update device model
+          POST                    admin   201   <device>       activate device, is then associated to the user
+          DELETE                  admin   200   <device>       deactivate device, is then associated to no body
+                                                
+              /output                           
+                POST              write   200                  output some voltage on the given device
+                                                
+    /subscriptions                              
+      GET                         read    200   [<subs>]       return device's subscriptions
+      POST                        read    201                  publish given device events to given endpoint
+      DELETE                      read    200                  stop publishing given device events to a given endpoint
 
 ◆ [Objects Schemas](#object-schemas)
 
-## /cloudbits/{bit_id}
+## /devices/{device_id}
 
 ### GET
 
-**Returns** an `Array` of cloudbit objects:
+**Returns** an `Array` of device objects:
 
     [
         {
@@ -89,19 +90,16 @@ Example:
     ]
 
 
-## /cloudbits/{bit_id}/output
+## /devices/{device_id}/output
 ### POST
 
     ? amount
-      | <Int:Range:0-1023>       –––– an absolute value within the DAC range
-      | <IntStr:Range:0-100%> –––– a percentage of the DAC range
-      | <Str:Level>               –––– a labeled 'level' of the DAC range
-                                        - Levels: 'active', 'idle'
-      – default: 'active'
+      | <Int:Range:0-100>       –––– a percent of the maximum current output
+      – default: 100
 
     ? duration_ms:
-      | <Int>                    –––– output will be sustained for given milliseconds
-                                        – if the duration_ms is < 0 it is floored to 0
+      | <Int>                   –––– output will be sustained for given milliseconds
+                                     – if the duration_ms is `-1` it will last forever or until another output is received by device
       - default: 500
 
 
@@ -114,13 +112,13 @@ or error:
     {
         "code": 403, 
         "error": "Forbidden", 
-        "message": "You do not own this cloudbit"
+        "message": "You do not own this device"
     }
     or
     {
         "code": 404, 
         "error": "Not Found", 
-        "message": "The cloudbit 000001 is not currently connected to bitcloud."
+        "message": "The device 000001 is not currently connected to bitcloud."
     }
 
 > #### Examples
@@ -137,8 +135,15 @@ or error:
     output at DAC 1023 (AKA "100%") for half-a-second
     {"amount":1023}
 
-## /cloudbits/{bit_id}/subscriptions
+## /subscriptions
 ### GET
+
+    ? subscriber_id
+      | <String>       –––– list subscriptions where given device [or callback uri] is a subscriber
+
+    ? publisher_id
+      | <String>       –––– list subscriptions where given device is a pubisher
+
 **Returns** an `Array` of subscription objects:
 
     [
@@ -159,16 +164,10 @@ or error:
     ]
 
 
-Note:
-
-If you create a subscription at /cloudbits/000001/subscriptions { subscriber_id:"000002" }, and then GET subscriptions for 000001, you won’t see the subscription you just created! This seems broken but isn’t: GET /subscriptions is showing from the publisher’s perspective. You will see this subscription by /cloudbits/000002/subscriptions.
-
-TODO: we should at least show all relevant subscriptions at /subscriptions, whether the given cloudbit is the publisher or subscriber in the relationship. Then we should consider changing this more fundamentally to make more sense and be more RESTful.
-
 ### DELETE
 
-    ? subscriber_id: <Str:URI> –– Specific Endpoint to unsubscribe
-                                   - If omitted then ALL endpoints will be unsubscribed
+    ! subscriber_id: <Str:URI|id> –– callback URI or device id of subscriber
+    ! publisher_id:  <Str:id>     –– device id of publisher
 
 
 **Returns** a somewhat obscure success message:
@@ -182,7 +181,8 @@ TODO: we should at least show all relevant subscriptions at /subscriptions, whet
 
 ### POST
 
-    ! subscriber_id: <Str:URI> –– An endpoint that bitcloud will POST event data to
+    ! subscriber_id: <Str:URI|id> –– callback URI or device id of subscriber
+    ! publisher_id:  <Str:id>     –– callback URI or device id of subscriber
     ? publisher_events: [<Event>] –– Channels to subscribe to
                                    - Default: ['amplitude:delta:ignite']
 
@@ -192,7 +192,7 @@ Notes:
 Each channel is POSTed to individually. For example if a client were to include "connection" and "amplitude" channels in their subscription they could receive POSTs for either channel but never a single POST for both channels simultaneously
 
 Payload sent to subscriber_id:
-    {"bit_id":<Str>, "user_id":<Int>, "timestamp":<Int>, "type":"amplitude", "payload":<Amplitude>}
+    {"device_id":<Str>, "user_id":<Int>, "timestamp":<Int>, "type":"amplitude", "payload":<Amplitude>}
 
 **Returns** a summary of what was just POSTed:
 
@@ -206,11 +206,11 @@ Payload sent to subscriber_id:
 
 
 > #### `subscriber_id` field details
-    Notes:
+    If subscriber_id is callback URI:
 >
-    - The given subscriber_id MUST respond with HTTP 200 within 15s [if it is a URI subscriber]
+    - it MUST respond with HTTP 200 within 15s
 >
-    - For any other response (including 15s timeout) Cloudbitcloud
+    - For any other response (including 15s timeout) littleBits Cloud
        will exponentially backoff 8 times until finally deleting
        the subscription (note: not banned, it may re-subscribe)
 >
@@ -229,7 +229,7 @@ Payload sent to subscriber_id:
     amplitude:delta:sustain    –––– when high voltage is constant (eg button being held)
     amplitude:delta:ignite     –––– when there is significant voltage jump (eg button press)
     amplitude:delta:release    –––– when there is significant voltage drop (eg button release)
-    amplitude:delta:nap        –––– when low voltage is constant (eg idle bit system)
+    amplitude:delta:nap        –––– when low voltage is constant (eg idle bitSnap system)
     amplitude:level:active     –––– generic, when there is high voltage (eg during a sustain or maybe just ignited)
     amplitude:level:idle       –––– generic, when there is low voltage (eg during a long nap or maybe just released)
 >>
@@ -244,7 +244,7 @@ All Examples pertain to this scenario:
 ```
 Client subscribes... (Substitute "..." with examples below)
 > POST
-  uri: https://api-http.littlebitscloud.cc/cloudbits/000001/subscriptions
+  uri: https://api-http.littlebitscloud.cc/devices/000001/subscriptions
   payload: { subscriber_id: 'http://foo.com/bar', publisher_events: ... }
 
 When events occur, Cloud publishes... (substitute "..." with examples below)
@@ -256,27 +256,27 @@ When events occur, Cloud publishes... (substitute "..." with examples below)
 client.payload.publisher_events = ['amplitude']
 
 POSTed to subscriber:
-{bit_id:"000001", user_id:<Int>, timestamp:<Int>, type:"amplitude", payload: {absolute:*, percent:*, delta:*, level:*}}
+{device_id:"000001", user_id:<Int>, timestamp:<Int>, type:"amplitude", payload: {absolute:*, percent:*, delta:*, level:*}}
 ```
 ```
 client.payload.events = ['amplitude:delta:ignite']
 
 POSTed to subscriber:
-{bit_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*, delta:'ignite', level:*}}
+{device_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*, delta:'ignite', level:*}}
 ```
 ```
 client.payload.events = ['amplitude:delta:ignite', 'amplitude:delta:sustain']
 
 POSTed to subscriber:
-{bit_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*,  delta:'sustain'|'ignite', level:*}}
+{device_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*,  delta:'sustain'|'ignite', level:*}}
 ```
 
 
 ## Object Schemas
-##### `cloudbit`
+##### `device`
 
     id:            <Str>
-    user_id:       <Int>             ––––   Code that identifies the owner (littleCloudbits user).
+    user_id:       <Int>             ––––   Code that identifies the owner (littleBits user).
     label:         <Str>             ––––   User-chosen label, unique among the user's bits.
     subscribers:   [<Str:URI>]       ––––   Clients subscribed to this bit
     subscriptions: [<Str:URI>]       ––––   Clients this bit is subscribed to
