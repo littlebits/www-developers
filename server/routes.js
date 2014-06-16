@@ -41,6 +41,12 @@ module.exports = function(server){
   });
 
   server.route({
+    path: '/access',
+    method: 'get',
+    handler: serve_file_md('access.md')
+  });
+
+  server.route({
     path: '/api-http/auth-implementation',
     method: 'get',
     handler: serve_file_md('authorization-implementation.md')
