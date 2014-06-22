@@ -102,6 +102,7 @@ Example:
     ? duration_ms:
       | <Int>                   –––– output will be sustained for given milliseconds
                                      – if the duration_ms is `-1` it will last forever or until another output is received by device
+      - maximum value: 32000
       - default: 500
 
 
