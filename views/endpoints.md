@@ -19,21 +19,19 @@ Available versions are:
 - v2
 - v1
 
-Every request *should* specify an `Accept` header that pins the api version.
+Every request *should* specify an `Accept` header that pins the api version. Version `master` is bleeding edge, changes regularly, and makes no guarantees (performance, backwards compatibility, stability, documentation, etc.). Beware, if you omit `version` it defaults to `master`.
 
-Version `master` is bleeding edge, changes regularly, and makes no guarantees (performance, backwards compatibility, stability, documentation, etc.).
-
-Beware, if you omit `version` it defaults to `master`.
+**The docs here are for v2**
 
 Example:
 
-    curl -i -XGET -H "Accept: application/vnd.littlebits.v1+json" ...
+    curl -i -XGET -H "Accept: application/vnd.littlebits.v2+json" ...
 
 For quick experimentation purposes only the `version` can be specified at the URI root too:
 
 Example:
 
-    curl -i XGET ... api-http.littlebitscloud.cc/v1/devices
+    curl -i XGET ... api-http.littlebitscloud.cc/v2/devices
 
 
 ## Resources
@@ -95,7 +93,7 @@ Example:
 ## /devices/{device_id}/output
 ### POST
 
-    ? amount
+    ? percent
       | <Int:Range:0-100>       –––– a percent of the maximum current output
       – default: 100
 
@@ -127,16 +125,13 @@ or error:
 > #### Examples
 >
     The default (used if you do not supply values yourself)
-    {"amount":"active", "duration_ms":500}
+    {"percent":100, "duration_ms":3000}
 >
-    output at 75% power for one-second
-    {"amount":"75%", "duration_ms":1000}
+    output at 75% power for one second
+    {"percent":75, "duration_ms":1000}
 >
-    idle output for one week (subequent "output" requests would overwrite this)
-    {"amount":"idle", "duration_ms":10080000}
->
-    output at DAC 1023 (AKA "100%") for half-a-second
-    {"amount":1023}
+    half output forever (subequent "output" requests would overwrite this)
+    {"percent":50, "duration_ms":-1}
 
 ## /subscriptions
 ### GET
