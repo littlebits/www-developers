@@ -101,7 +101,7 @@ Example:
       | <Int>                   –––– output will be sustained for given milliseconds
                                      – if the duration_ms is `-1` it will last forever or until another output is received by device
       - maximum value: 32000
-      - default: 500
+      - default: 3000 (3 seconds)
 
 
 **Returns** success:
@@ -119,7 +119,7 @@ or error:
     {
         "code": 404, 
         "error": "Not Found", 
-        "message": "The device 000001 is not currently connected to bitcloud."
+        "message": "The device {device_id} is not currently connected to the littleBits Cloud."
     }
 
 > #### Examples
@@ -281,7 +281,6 @@ POSTed to subscriber:
 
 ##### `amplitude`
 
-    absolute:     <Int:0-1023>
     percent:      <Float:0-100>
     level:        <Str:('active'|'idle')>
     delta:        <Str:('nap'|'release'|'ignite'|'sustain')>
