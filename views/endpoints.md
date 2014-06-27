@@ -45,19 +45,19 @@ Example:
                                   OAuth   HTTP
     path                          Scope   Code  Payload ◆       Make LB Cloud...
     ----                          -----   ----  ---------       ----------------
-    /devices                                    
+    /devices
       GET                         read    200   [<devices>]    return a list of the user’s devices
-                                                
-        /{device_id}                            
+
+        /{device_id}
           GET                     read    200   <device>       return device model
           PUT                     admin   200   <device>       update device model
           POST                    admin   201   <device>       activate device, is then associated to the user
           DELETE                  admin   200   <device>       deactivate device, is then associated to no body
-                                                
-              /output                           
+
+              /output
                 POST              write   200                  output some voltage on the given device
-                                                
-    /subscriptions                              
+
+    /subscriptions
       GET                         read    200   [<subs>]       return device's subscriptions
       POST                        read    201                  publish given device events to given endpoint
       DELETE                      read    200                  stop publishing given device events to a given endpoint
@@ -72,19 +72,19 @@ Example:
 
     [
         {
-            "id": "000001", 
-            "label": "000001", 
-            "subscribers": [], 
-            "subscriptions": [], 
-            "user_id": "1", 
+            "id": "000001",
+            "label": "000001",
+            "subscribers": [],
+            "subscriptions": [],
+            "user_id": "1",
             "wifi": {}
         },
         {
-            "id": "000002", 
-            "label": "000002", 
-            "subscribers": [], 
-            "subscriptions": [], 
-            "user_id": "1", 
+            "id": "000002",
+            "label": "000002",
+            "subscribers": [],
+            "subscriptions": [],
+            "user_id": "1",
             "wifi": {}
         }
     ]
@@ -111,14 +111,14 @@ Example:
 or error:
 
     {
-        "code": 403, 
-        "error": "Forbidden", 
+        "code": 403,
+        "error": "Forbidden",
         "message": "You do not own this device"
     }
     or
     {
-        "code": 404, 
-        "error": "Not Found", 
+        "code": 404,
+        "error": "Not Found",
         "message": "The device {device_id} is not currently connected to the littleBits Cloud."
     }
 
@@ -148,14 +148,14 @@ or error:
         {
             "events": [
                 "amplitude"
-            ], 
-            "publisher_id": "000001", 
+            ],
+            "publisher_id": "000001",
             "subscriber_id": "000002"
         },
         {
             "events": [
                 "amplitude:delta:ignite"
-            ], 
+            ],
             "publisher_id": "000001",
             "subscriber_id": "http://some.callback.com?params=stuff"
         }
@@ -171,8 +171,8 @@ or error:
 **Returns** a somewhat obscure success message:
 
     [
-        1, 
-        1, 
+        1,
+        1,
         1
     ]
 
@@ -180,7 +180,7 @@ or error:
 ### POST
 
     ! subscriber_id: <Str:URI|id> –– callback URI or device id of subscriber
-    ! publisher_id:  <Str:id>     –– callback URI or device id of subscriber
+    ! publisher_id:  <Str:id>     –– device id of publisher
     ? publisher_events: [<Event>] –– Channels to subscribe to
                                    - Default: ['amplitude:delta:ignite']
 
@@ -197,8 +197,8 @@ Payload sent to subscriber_id:
     {
         "events": [
             "amplitude"
-        ], 
-        "publisher_id": "000001", 
+        ],
+        "publisher_id": "000001",
         "subscriber_id": "000002"
     }
 

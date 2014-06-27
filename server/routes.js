@@ -13,20 +13,6 @@ function serve_file_md(file){
 
 
 module.exports = function(server){
-  server.route({
-    path: '/',
-    method: 'get',
-    handler: function(request, reply) {
-      reply().redirect('/api-http');
-    }
-  });
-    server.route({
-      path: '/api-rest',
-      method: 'get',
-      handler: function(request, reply) {
-        reply().redirect('/api-http');
-      }
-    });
 
   server.route({
     path: '/api-http',
@@ -41,16 +27,47 @@ module.exports = function(server){
   });
 
   server.route({
+    path: '/api-http/auth-implementation',
+    method: 'get',
+    handler: serve_file_md('authorization-implementation.md')
+  });
+
+
+  // special
+
+  server.route({
     path: '/access',
     method: 'get',
     handler: serve_file_md('access.md')
   });
 
   server.route({
-    path: '/api-http/auth-implementation',
+    path: '/workshop',
     method: 'get',
-    handler: serve_file_md('authorization-implementation.md')
+    handler: serve_file_md('workshop.md')
   });
+
+
+  // redirects
+
+  server.route({
+    path: '/',
+    method: 'get',
+    handler: function(request, reply) {
+      reply().redirect('/api-http');
+    }
+  });
+
+  server.route({
+    path: '/api-rest',
+    method: 'get',
+    handler: function(request, reply) {
+      reply().redirect('/api-http');
+    }
+  });
+
+
+  // assets
 
   server.route({
     path: '/assets/{path*}',
@@ -61,4 +78,5 @@ module.exports = function(server){
       }
     }
   });
+
 };
