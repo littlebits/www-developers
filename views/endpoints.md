@@ -111,7 +111,7 @@ curl -i -XGET -H "Authorization: Bearer TOKEN" -H "Accept: application/vnd.littl
 
 
 ```
-curl -i -XGET -H "Authorization: Bearer TOKEN" -H "Accept: application/vnd.littlebits.v2+json" https://api-http.littlebitscloud.cc/devices/DEVICE_ID/output -d percent=50 -d duration_ms=1000
+curl -i -XPOST -H "Authorization: Bearer TOKEN" -H "Accept: application/vnd.littlebits.v2+json" https://api-http.littlebitscloud.cc/devices/DEVICE_ID/output -d percent=50 -d duration_ms=1000
 ```
 
 **Returns** success:
