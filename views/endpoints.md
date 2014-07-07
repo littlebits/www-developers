@@ -64,9 +64,15 @@ Example:
 
 ◆ [Objects Schemas](#object-schemas)
 
+## Endpoints Overview
+
 ## /devices/{device_id}
 
 ### GET
+
+```
+curl -i -XGET -H "Authorization: Bearer TOKEN" -H "Accept: application/vnd.littlebits.v2+json" https://api-http.littlebitscloud.cc/devices/DEVICE_ID
+```
 
 **Returns** an `Array` of device objects:
 
@@ -103,6 +109,10 @@ Example:
       - maximum value: 32000
       - default: 3000 (3 seconds)
 
+
+```
+curl -i -XGET -H "Authorization: Bearer TOKEN" -H "Accept: application/vnd.littlebits.v2+json" https://api-http.littlebitscloud.cc/devices/DEVICE_ID/output -d percent=50 -d duration_ms=1000
+```
 
 **Returns** success:
 
@@ -242,8 +252,8 @@ All Examples pertain to this scenario:
 ```
 Client subscribes... (Substitute "..." with examples below)
 > POST
-  uri: https://api-http.littlebitscloud.cc/devices/000001/subscriptions
-  payload: { subscriber_id: 'http://foo.com/bar', publisher_events: ... }
+  uri: https://api-http.littlebitscloud.cc/devices/subscriptions
+  payload: { publisher_id: '000001', subscriber_id: 'http://foo.com/bar', publisher_events: ... }
 
 When events occur, Cloud publishes... (substitute "..." with examples below)
 > POST
@@ -254,19 +264,19 @@ When events occur, Cloud publishes... (substitute "..." with examples below)
 client.payload.publisher_events = ['amplitude']
 
 POSTed to subscriber:
-{device_id:"000001", user_id:<Int>, timestamp:<Int>, type:"amplitude", payload: {absolute:*, percent:*, delta:*, level:*}}
+{ device_id:"000001", user_id:<Int>, timestamp:<Int>, type:"amplitude", payload: {absolute:*, percent:*, delta:*, level:*}}
 ```
 ```
 client.payload.events = ['amplitude:delta:ignite']
 
 POSTed to subscriber:
-{device_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*, delta:'ignite', level:*}}
+{ device_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*, delta:'ignite', level:*}}
 ```
 ```
 client.payload.events = ['amplitude:delta:ignite', 'amplitude:delta:sustain']
 
 POSTed to subscriber:
-{device_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*,  delta:'sustain'|'ignite', level:*}}
+{ device_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*,  delta:'sustain'|'ignite', level:*}}
 ```
 
 
@@ -282,5 +292,4 @@ POSTed to subscriber:
 ##### `amplitude`
 
     percent:      <Float:0-100>
-    level:        <Str:('active'|'idle')>
     delta:        <Str:('nap'|'release'|'ignite'|'sustain')>
