@@ -156,14 +156,14 @@ or error:
 
     [
         {
-            "events": [
+            "publisher_events": [
                 "amplitude"
             ],
             "publisher_id": "000001",
             "subscriber_id": "000002"
         },
         {
-            "events": [
+            "publisher_events": [
                 "amplitude:delta:ignite"
             ],
             "publisher_id": "000001",
@@ -205,7 +205,7 @@ Payload sent to subscriber_id:
 **Returns** a summary of what was just POSTed:
 
     {
-        "events": [
+        "publisher_events": [
             "amplitude"
         ],
         "publisher_id": "000001",
@@ -243,7 +243,7 @@ Payload sent to subscriber_id:
 >>
   You may subscribe to multiple channels, e.g.:
 >>
-    events: ['amplitude:delta:release', 'amplitude:delta:ignite']
+    publisher_events: ['amplitude:delta:release', 'amplitude:delta:ignite']
 >>
 
 
@@ -267,13 +267,13 @@ POSTed to subscriber:
 { device_id:"000001", user_id:<Int>, timestamp:<Int>, type:"amplitude", payload: {absolute:*, percent:*, delta:*, level:*}}
 ```
 ```
-client.payload.events = ['amplitude:delta:ignite']
+client.payload.publisher_events = ['amplitude:delta:ignite']
 
 POSTed to subscriber:
 { device_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*, delta:'ignite', level:*}}
 ```
 ```
-client.payload.events = ['amplitude:delta:ignite', 'amplitude:delta:sustain']
+client.payload.publisher_events = ['amplitude:delta:ignite', 'amplitude:delta:sustain']
 
 POSTed to subscriber:
 { device_id:"000001", user_id:<Int>, timestamp:<Int>, type:'amplitude', payload: {absolute:*, percent:*,  delta:'sustain'|'ignite', level:*}}
