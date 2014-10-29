@@ -4,8 +4,8 @@ var path = require('path');
 var marked = require('marked');
 
 function serve_file_md(file){
-  var md_cotnent = fs.readFileSync(path.join(__dirname, '../views', file)).toString();
-  var html_content =  marked(md_cotnent);
+  var md_content = fs.readFileSync(path.join(__dirname, '../views', file)).toString();
+  var html_content =  marked(md_content);
   return function(req, reply){
     reply.view('index', {content: html_content});
   };
