@@ -10,7 +10,8 @@ Example:
 
     curl -i -XGET -H "Authorization: Bearer foobar" ...
 
-[Find out how to get your access token here.](/access)
+* [Find out how to get your access token here.](/access)
+* [Auth resources](#resources)
 
 ## Version
 Available versions are:
@@ -33,11 +34,6 @@ Example:
 
     curl -i XGET ... api-http.littlebitscloud.cc/v2/devices
 
-
-## Resources
-- There is a [dummy OAuth-client](http://oauth-client.herokuapp.com/) to create access tokens.
-- [auth docs](/api-http/auth)
-- [auth implementation docs](/api-http/auth-implementation)
 
 
 ## Endpoints Overview
@@ -62,7 +58,8 @@ Example:
       POST                        read    201                  publish given device events to given endpoint
       DELETE                      read    200                  stop publishing given device events to a given endpoint
 
-◆ [Objects Schemas](#object-schemas)
+* [Object Schemas](#object-schemas)
+
 
 ## Endpoints Overview
 
@@ -280,7 +277,9 @@ POSTed to subscriber:
 ```
 
 
+
 ## Object Schemas
+
 ##### `device`
 
     id:            <Str>
@@ -293,3 +292,11 @@ POSTed to subscriber:
 
     percent:      <Float:0-100>
     delta:        <Str:('nap'|'release'|'ignite'|'sustain')>
+
+
+
+## Resources
+
+- There is a [dummy OAuth-client](http://oauth-client.herokuapp.com/) to create access tokens.
+- [auth docs](/api-http/auth)
+- [auth implementation docs](/api-http/auth-implementation)
