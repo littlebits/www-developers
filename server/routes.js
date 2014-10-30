@@ -29,17 +29,17 @@ module.exports = function(server){
     {
       path: '/api-http',
       method: 'get',
-      handler: serve_file_md('endpoints.md')
+      handler: serve_file_md('api-http.md')
     },
     {
       path: '/api-http/auth',
       method: 'get',
-      handler: serve_file_md('authorization.md')
+      handler: serve_file_md('api-authorization.md')
     },
     {
       path: '/api-http/auth-implementation',
       method: 'get',
-      handler: serve_file_md('authorization-implementation.md')
+      handler: serve_file_md('api-authorization-implementation.md')
     },
 
     // special
@@ -64,7 +64,6 @@ module.exports = function(server){
     },
 
     // assets
-
     {
       path: '/assets/{path*}',
       method: 'get',
