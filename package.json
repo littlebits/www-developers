@@ -5,7 +5,7 @@
   "description": "littleBits Cloud http API Documentation",
   "main": "boot.js",
   "scripts": {
-    "start": "make dev"
+    "start": "node server"
   },
   "repository": {
     "type": "git",
