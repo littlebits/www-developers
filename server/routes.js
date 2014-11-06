@@ -1,75 +1,63 @@
-var fs = require('fs')
 var path = require('path')
-var marked = require('marked')
+var cp = require('child_process')
 
-function serve_file_md(file){
-  var md_content = fs.readFileSync(path.join(__dirname, '../views', file)).toString()
-  var html_content =  marked(md_content)
-  return function(req, reply){
-    reply.view('index', { content: html_content })
-  }
-}
 
 
 module.exports = function(server){
 
   server.route([
     {
-      path: '/index',
-      method: 'get',
-      handler: serve_file_md('index.md')
-    },
-    {
       path: '/',
       method: 'get',
-      handler: function(request, reply) {
-        reply().redirect('/api-http');
+      handler: {
+        view: 'index'
       }
     },
     {
       path: '/api-http',
       method: 'get',
-      handler: serve_file_md('api-http.md')
+      handler: {
+        view: 'api-http'
+      }
     },
     {
       path: '/api-http/auth',
       method: 'get',
-      handler: serve_file_md('api-authorization.md')
+      handler: function(){} //serve_file_md('api-authorization.md')
     },
     {
       path: '/api-http/auth-implementation',
       method: 'get',
-      handler: serve_file_md('api-authorization-implementation.md')
+      handler: function(){} //serve_file_md('api-authorization-implementation.md')
     },
 
     // special
     {
       path: '/access',
       method: 'get',
-      handler: serve_file_md('access.md')
+      handler: function(){} // serve_file_md('access.md')
     },
     {
       path: '/workshop',
       method: 'get',
-      handler: serve_file_md('workshop.md')
-    },
-
-    // redirects
-    {
-      path: '/api-rest',
-      method: 'get',
-      handler: function(request, reply) {
-        reply().redirect('/api-http')
-      }
+      handler: function(){} // serve_file_md('workshop.md')
     },
 
     // assets
     {
       path: '/assets/{path*}',
       method: 'get',
+      config: {
+        pre: [function(req, rep){
+          cp.exec('npm run build-client', function(err){
+            if (err) throw err
+            rep()
+          })
+        }]
+      },
       handler: {
         directory: {
-          path: path.join(__dirname, '../client/')
+          path: path.join(__dirname, '../client')
         }
       }
     }
