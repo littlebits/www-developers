@@ -10,7 +10,7 @@ Example:
 
     curl -i -XGET -H "Authorization: Bearer foobar" ...
 
-* [Find out how to get your access token here.](/access)
+* [Find out how to get your access token here.](/v2/access)
 * [Auth resources](#resources)
 
 ## Version

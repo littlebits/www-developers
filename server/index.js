@@ -2,6 +2,7 @@ var path = require('path')
 var hapi = require('hapi')
 var config = require('./config')
 var Routes = require('./routes')
+var RoutesLegacy = require('./routes-views-legacy')
 
 
 
@@ -26,6 +27,7 @@ server.pack.register(plugins, onPluginsLoaded)
 
 function onPluginsLoaded(err) {
   Routes(server)
+  RoutesLegacy(server)
   if (!err) server.start(logListening)
 }
 

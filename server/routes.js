@@ -14,37 +14,6 @@ module.exports = function(server){
       }
     },
     {
-      path: '/api-http',
-      method: 'get',
-      handler: {
-        view: 'api-http'
-      }
-    },
-    {
-      path: '/api-http/auth',
-      method: 'get',
-      handler: function(){} //serve_file_md('api-authorization.md')
-    },
-    {
-      path: '/api-http/auth-implementation',
-      method: 'get',
-      handler: function(){} //serve_file_md('api-authorization-implementation.md')
-    },
-
-    // special
-    {
-      path: '/access',
-      method: 'get',
-      handler: function(){} // serve_file_md('access.md')
-    },
-    {
-      path: '/workshop',
-      method: 'get',
-      handler: function(){} // serve_file_md('workshop.md')
-    },
-
-    // assets
-    {
       path: '/assets/{path*}',
       method: 'get',
       config: {
@@ -62,5 +31,4 @@ module.exports = function(server){
       }
     }
   ])
-
 }
