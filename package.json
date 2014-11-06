@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node server",
-    "build-client": "duo --root client index.css index.js build && myth client/build/index.css client/build/index.css"
+    "build-client": "duo --use duo-yaml --root client index.css index.js build && myth client/build/index.css client/build/index.css"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "duo": "^0.8.9",
+    "duo-yaml": "0.0.1",
     "myth": "^1.2.1",
     "node-dev": "~2.1.6"
   }

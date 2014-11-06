@@ -1,0 +1,5 @@
+foo/devices/{device_id}/output:
+  description: 'Send an amplitude percentage to device output'
+  options:
+    duration_ms:
+      description: 'Sustain the given output for n milliseconds.'
