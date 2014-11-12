@@ -1,5 +1,18 @@
-foo/devices/{device_id}/output:
-  description: 'Send an amplitude percentage to device output'
-  options:
-    duration_ms:
-      description: 'Sustain the given output for n milliseconds.'
+- path: '/devices/{device_id}/output'
+  method: POST
+  summary: Write amplitude to device output.
+  params:
+    - name: percent
+      summary: What percentage of amplitude to write
+      required: false
+      default: 100
+      type: Integer
+    - name: duration_ms
+      summary: Sustain the given output percentage for n milliseconds.
+      required: false
+      default: 3000
+
+- path: '/devices/{device_id}/input'
+  method: GET
+  summary: Read stream of amplitude from device input.
+  params: []

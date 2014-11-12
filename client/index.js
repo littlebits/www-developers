@@ -1,5 +1,6 @@
 var react = require('reactjs/react-bower:react-with-addons.js')
-var routes = require('./api-http-routes.json')
+// var Immutable = require('facebook/immutable-js@3.1.0:dist/immutable.js')
+var routesData = require('./api-http-routes')
 
 var E = react.DOM
 var T = react.PropTypes
@@ -9,44 +10,66 @@ var F = react.createFactory
 
 var app = react.createClass({
   displayName: 'app',
-  getInitialState: function(){
+  getInitialState: function() {
     return {
-      version: '3'
+      version: '2',
+      routesData: routesData
     }
   },
   render: function() {
-    return E.div(null, routes
-      .filter(isVersion(this.state.version))
-      .map(RouteMapper))
+    var routeEls = this.state.routesData
+        .filter(isVersion(this.state.version))
+        .map(RouteMapper)
+        .toJS()
+    return E.div(null, routeEls)
   }
 })
 
 
 
 function RouteMapper(route) {
-  var key = route.method + route.version + route.path
-  return Route({ key: key, route: route })
+  return Route({ key: routeKey(route), route: route })
 }
 
+function routeKey(route) {
+  return route.get('method') +
+         route.get('version') +
+         route.get('path')
+}
+
+
+
+/* Route component
+   Render the view of one route.
+*/
 var Route = F(react.createClass({
   displayName: 'route',
   propTypes: {
     route: T.object.isRequired
   },
   render: function(){
-    return E.h1(null, this.props.route.path)
+    var r = this.props.route
+    return E.section({ className: 'route' },
+                     E.h1(null, r.get('path')),
+                     E.p(null, r.getIn(['meta', 'summary']))
+                    )
   }
 }))
 
 
-bootstrap(app)
 
 
 function isVersion(n) {
   return function(route){
-    return String(route.version) === n
+    return String(route.get('version')) === n
   }
 }
+
+
+
+// Boot the application
+
+bootstrap(app)
 
 function bootstrap(app, selector){
   selector = selector || '#app-container'

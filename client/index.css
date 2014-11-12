@@ -1,5 +1,7 @@
 @import 'suitcss/base';
 
+
+
 a {
   color: #2aa198;
 }
@@ -10,4 +12,11 @@ a:hover {
 
 a:target {
   color: #115160 !important;
+}
+
+
+
+
+.route {
+  border: 1px solid red;
 }
