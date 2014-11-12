@@ -60,7 +60,8 @@ var Route = F(react.createClass({
 
 
 function isVersion(n) {
-  return function(route){
+  return function(route) {
+    console.log('isVersion', route.toJS())
     return String(route.get('version')) === n
   }
 }

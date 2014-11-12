@@ -6,11 +6,10 @@ var routesMeta = Immutable.fromJS(require('./api-http-meta.yaml'))
 
 
 
-var reducing = routesMachine
+//var reducing = routesMachine
 
 module.exports = routesMeta.map(function(meta) {
-  var i = reducing.findIndex(function(route) {
-    // console.log('!', meta.get('path'), route.get('path'))
+  var i = routesMachine.findIndex(function(route) {
     return meta.get('path') === route.get('path') &&
            meta.get('method') === route.get('method')
   })
@@ -20,7 +19,6 @@ module.exports = routesMeta.map(function(meta) {
     return null
   }
 
-  reducing = routesMachine.slice(i, 1)
   return routesMachine.get(i).set('meta', meta)
 })
 
