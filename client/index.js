@@ -20,7 +20,8 @@ var App = React.createClass({
     return {
       version: '2',
       routesData: routesData,
-      locales: locals
+      locales: locals,
+      currentSection: 'HTTP API'
     }
   },
   render: function() {
@@ -28,6 +29,7 @@ var App = React.createClass({
     div({ className: 'app' },
       banner(null),
       renderServiceCards(this.state),
+      sectionHead({ className: 'container', title: this.state.currentSection }),
       renderRoutes(this.state)
     )
   }
@@ -42,6 +44,10 @@ function renderServiceCards(state) {
     }).toJS()
   )
 }
+
+var sectionHead = ELEM('section-head', 'section', function(props){
+  return e.h1({}, props.title)
+})
 
 function renderRoutes(state) {
   return e.
@@ -77,9 +83,8 @@ var Route = F(React.createClass({
   },
   render: function() {
     var route = this.props.route
-    console.log(route.toJS())
     return e.
-    section({ className: 'route' },
+    section({ className: 'route container' },
       headerEl({ route: route }),
       summaryEl({ route: route }),
       params({ route: route })

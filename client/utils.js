@@ -9,7 +9,9 @@ exports.ELEM = function ELEM(name, tag, createChildren, config) {
     React.createClass({
       displayName: name,
       render: function() {
-        return React.DOM[tag](config, createChildren(this.props))
+        return this.transferPropsTo(
+          React.DOM[tag](config, createChildren(this.props))
+        )
       }
     })
   )
