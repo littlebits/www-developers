@@ -5,6 +5,8 @@
 @import './parts/banner';
 @import './parts/sci-line';
 @import './parts/service-card';
+@import './parts/badge';
+
 
 
 .themeDark {

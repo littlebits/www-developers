@@ -4,7 +4,7 @@ var e = r.DOM
 
 
 
-var Banner = r.createClass({
+module.exports = r.createFactory(r.createClass({
   displayName: 'banner',
   render: function() {
     return e.
@@ -12,9 +12,8 @@ var Banner = r.createClass({
       githubRibbon({ href: 'https://github.com/littlebits/www-developers' }),
       e.h1({className: 'fontHeading'}, 'littleBits Cloud Platform'))
   }
-})
+}))
 
-module.exports = r.createFactory(Banner)
 
 
 var githubRibbon = r.createFactory(r.createClass({

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node server",
-    "build-client": "duo --use duo-yaml --root client index.css index.js build && myth client/build/index.css client/build/index.css"
+    "build-client": "duo --use duo-6to5,duo-yaml --root client index.css index.js build && myth client/build/index.css client/build/index.css"
   },
   "repository": {
     "type": "git",

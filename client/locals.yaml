@@ -3,7 +3,9 @@ services:
     summary: Read from and write to your device's amplitude, manage device settings, register webhooks and subscribe devices to each other.
   - name: Stream API
     summary: Read from and write to your device's amplitude in real-time.
+    badge: Coming Soon
   - name: OAuth2
     summary: 'Coming soon: Create fresh and exciting apps on our open third-party platform'
+    badge: Coming Soon
   - name: Libraries
     summary: 'Use the platform with our fluent JavaScript wrappers or pick from community libs to program in another language.'
