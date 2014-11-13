@@ -1,0 +1,7 @@
+.banner {
+  height: 10rem;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+}

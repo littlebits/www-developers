@@ -1,4 +1,19 @@
 @import 'suitcss/base';
+@import 'littlebitselectronics/futura-round-family';
+@import './parts/banner';
+
+
+.themeSecondary {
+  background: hsl(280, 73%, 16%);
+  color: white;
+}
+
+.fontTitle {
+  font-family: 'Futura Round';
+  font-weight: 300;
+  font-size: 2rem;
+}
+
 
 
 html, body {

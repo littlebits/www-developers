@@ -1,8 +1,9 @@
 var React = require('reactjs/react-bower:react-with-addons.js')
 var Immutable = require('facebook/immutable-js@3.1.0:dist/immutable.js')
 var routesData = require('./api-http-routes')
+var banner = require('./parts/banner')
 
-var E = React.DOM
+var e = React.DOM
 var T = React.PropTypes
 var F = React.createFactory
 
@@ -17,13 +18,23 @@ var app = React.createClass({
     }
   },
   render: function() {
-    var routeEls = this.state.routesData
-        .filter(isVersion(this.state.version))
-        .map(RouteMapper)
-        .toJS()
-    return E.div({ className: 'routes' }, routeEls)
+    return e.
+    div({ className: 'app' },
+      banner(null),
+      renderRoutes(this.state)
+    )
   }
 })
+
+function renderRoutes(state) {
+  return e.
+  div({ className: 'routes' },
+    state.routesData
+    .filter(isVersion(state.version))
+    .map(RouteMapper)
+    .toJS()
+  )
+}
 
 
 
@@ -50,7 +61,7 @@ var Route = F(React.createClass({
   render: function() {
     var route = this.props.route
     console.log(route.toJS())
-    return E.
+    return e.
     section({ className: 'route' },
       headerEl({ route: route }),
       summaryEl({ route: route }),
@@ -69,17 +80,17 @@ var summaryEl = ELEM('route-summary', 'p', function(props){
 
 var paramsBodyEl = ELEM('route-params-body', 'section', function(props){
   var params = props.route.getIn(['meta', 'bodyParams'], Immutable.List())
-  return E.
+  return e.
   div(null,
-    E.h2(null, 'Params'),
-    E.ul({ className: 'params' },
+    e.h2(null, 'Params'),
+    e.ul({ className: 'params' },
       params.map(function(param) {
-        return E.
+        return e.
         li({ className: 'param' },
-          E.span({ className: 'param-name' }, param.get('name')),
-          //E.span(null, param.get('type')),
-          //E.span(null, param.get('required').toString()),
-          E.p({ className: 'param-summary' }, param.get('summary'))
+          e.span({ className: 'param-name' }, param.get('name')),
+          //e.span(null, param.get('type')),
+          //e.span(null, param.get('required').toString()),
+          e.p({ className: 'param-summary' }, param.get('summary'))
         )
       }).toJS()
     )
