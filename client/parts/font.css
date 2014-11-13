@@ -1,0 +1,16 @@
+.fontHeading {
+  font-family: 'Futura Round';
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.fontTitle {
+  font-family: 'Futura Round';
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.fontHeading:not(:last-child),
+.fontTitle:not(:last-child) {
+  margin-bottom: 1em;
+}

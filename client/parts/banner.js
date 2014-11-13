@@ -1,14 +1,16 @@
-var React = require('reactjs/react-bower:react-with-addons.js')
-var E = React.DOM
+var r = require('reactjs/react-bower:react-with-addons.js')
+var e = r.DOM
 
 
 
 
-var Banner = React.createClass({
+var Banner = r.createClass({
   displayName: 'banner',
   render: function() {
-    return E.div({ className: 'banner themeSecondary fontTitle' }, 'littleBits Cloud Platform')
+    return e.
+    div({ className: 'banner themeDark' },
+      e.h1({className: 'fontHeading'}, 'littleBits Cloud Platform'))
   }
 })
 
-module.exports = React.createFactory(Banner)
+module.exports = r.createFactory(Banner)

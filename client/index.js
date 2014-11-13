@@ -1,7 +1,9 @@
 var React = require('reactjs/react-bower:react-with-addons.js')
 var Immutable = require('facebook/immutable-js@3.1.0:dist/immutable.js')
 var routesData = require('./api-http-routes')
+var locals = Immutable.fromJS(require('./locals.yaml'))
 var banner = require('./parts/banner')
+var serviceCard = require('./parts/service-card')
 
 var e = React.DOM
 var T = React.PropTypes
@@ -14,17 +16,28 @@ var app = React.createClass({
   getInitialState: function() {
     return {
       version: '2',
-      routesData: routesData
+      routesData: routesData,
+      locales: locals
     }
   },
   render: function() {
     return e.
     div({ className: 'app' },
       banner(null),
+      renderServiceCards(this.state),
       renderRoutes(this.state)
     )
   }
 })
+
+function renderServiceCards(state) {
+  var services = state.locales.get('services')
+  return e.section({ className: 'serviceCards' },
+    services.map(function(service) {
+      return serviceCard({ title: service.get('name') }, service.get('summary'))
+    }).toJS()
+  )
+}
 
 function renderRoutes(state) {
   return e.
@@ -71,7 +84,7 @@ var Route = F(React.createClass({
 }))
 
 var headerEl = ELEM('route-header', 'h1', function(props){
-  return props.route.get('method')  + ' ' + props.route.get('path')
+  return props.route.get('method') + ' ' + props.route.get('path')
 })
 
 var summaryEl = ELEM('route-summary', 'p', function(props){

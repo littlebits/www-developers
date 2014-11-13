@@ -1,20 +1,37 @@
 @import 'suitcss/base';
 @import 'littlebitselectronics/futura-round-family';
+@import './parts/font';
 @import './parts/banner';
+@import './parts/service-card';
 
 
-.themeSecondary {
-  background: hsl(280, 73%, 16%);
+.themeDark {
+  background: hsl(0, 0%, 19%);
   color: white;
 }
 
-.fontTitle {
-  font-family: 'Futura Round';
-  font-weight: 300;
-  font-size: 2rem;
+.themeSecondary {
+  background: hsl(280, 50%, 22%);
+  color: white;
 }
 
 
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+.banner {
+  margin-bottom: 1px;
+}
+
+html {
+  line-height: 1.33333;
+  font-size: 16px
+}
 
 html, body {
   height: 100%;

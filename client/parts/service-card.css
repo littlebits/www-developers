@@ -1,0 +1,15 @@
+
+.serviceCards {
+  display: flex;
+}
+.serviceCards > *:not(:last-child) {
+  margin-right: 1px;
+}
+
+.serviceCard {
+  width: 15rem;
+  height: 15rem;
+  background-color: hsl(159, 76%, 43%);
+  color: hsl(0, 100%, 100%);
+  padding: 2rem;
+}
