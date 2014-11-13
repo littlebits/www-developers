@@ -5,3 +5,16 @@
   padding-left: 2rem;
   padding-bottom: 2rem;
 }
+
+
+.github-fork-ribbon {
+  background-color: white;
+}
+.github-fork-ribbon a {
+  color: #444;
+  text-shadow: none;
+}
+.github-fork-ribbon a:hover {
+  color: black;
+  text-shadow: none;
+}
