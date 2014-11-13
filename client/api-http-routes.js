@@ -1,14 +1,16 @@
 // Build routes data. Combine machine-generated data from the HTTP API
 // with hand-written data from our docs file.
+var debug = require('visionmedia/debug')('www-developers')
 var Immutable = require('facebook/immutable-js@3.1.0:dist/immutable.js')
 var routesMachine = Immutable.fromJS(require('./api-http-routes.json'))
 var routesMeta = Immutable.fromJS(require('./api-http-meta.yaml'))
 
 
 
-//var reducing = routesMachine
+module.exports = routesMeta
 
-module.exports = routesMeta.map(function(meta) {
+.map(function(meta) {
+  
   var i = routesMachine.findIndex(function(route) {
     return meta.get('path') === route.get('path') &&
            meta.get('method') === route.get('method')
@@ -24,4 +26,4 @@ module.exports = routesMeta.map(function(meta) {
 
 .filter(function(x){ return x })
 
-console.log('resolved routes data:', module.exports.toJS())
+debug('resolved routes data:', module.exports.toJS())

@@ -1,13 +1,37 @@
+- path: '/devices'
+  method: GET
+  summary: Get information about all your devices.
+
+- path: '/devices/{device_id}'
+  method: GET
+  summary: Get device information and current settings.
+
+- path: '/devices/{device_id}'
+  method: PUT
+  summary: Update device settings.
+
+- path: '/subscriptions'
+  method: POST
+  summary: Create a subscription
+  bodyParams:
+    - name: subscriber_id
+      summary: A device ID or URI.
+    - name: publisher_id
+      summary: A device ID
+    - name: publisher_events
+      summary: What types of events do you want the subscriber to receive?
+
 - path: '/devices/{device_id}/output'
   method: POST
   summary: Write amplitude to device output.
-  params:
+  bodyParams:
     - name: percent
       summary: What percentage of amplitude to write
       required: false
       default: 100
       type: Integer
     - name: duration_ms
+      type: Integer
       summary: Sustain the given output percentage for n milliseconds.
       required: false
       default: 3000
@@ -15,4 +39,4 @@
 - path: '/devices/{device_id}/input'
   method: GET
   summary: Read stream of amplitude from device input.
-  params: []
+  bodyParams: []

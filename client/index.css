@@ -1,6 +1,59 @@
 @import 'suitcss/base';
 
 
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.routes {
+  width: 40rem;
+  margin: 1rem auto;
+}
+
+.routes > *:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.route {
+  background: #EFEFEF;
+  padding: 1rem;
+}
+
+
+.route-header {
+  font-family: courier;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.route-summary {
+
+}
+
+
+h2 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.params > *:not(:last-child){
+  margin-bottom: 1rem;
+}
+
+.param-name {
+  font-family: courier;
+  margin-bottom: 1rem;
+}
+
+.param-summary {
+  margin-top: 1rem;
+}
+
+
 
 a {
   color: #2aa198;
@@ -12,11 +65,4 @@ a:hover {
 
 a:target {
   color: #115160 !important;
-}
-
-
-
-
-.route {
-  border: 1px solid red;
 }
