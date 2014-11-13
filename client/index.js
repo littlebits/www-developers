@@ -4,6 +4,7 @@ var routesData = require('./api-http-routes')
 var locals = Immutable.fromJS(require('./locals.yaml'))
 var banner = require('./parts/banner')
 var serviceCard = require('./parts/service-card')
+var sciLine = require('./parts/sci-line')
 
 var e = React.DOM
 var T = React.PropTypes
@@ -34,7 +35,8 @@ function renderServiceCards(state) {
   var services = state.locales.get('services')
   return e.section({ className: 'serviceCards' },
     services.map(function(service) {
-      return serviceCard({ title: service.get('name') }, service.get('summary'))
+      return serviceCard({ head: sciLine(null, service.get('name')) },
+        service.get('summary'))
     }).toJS()
   )
 }

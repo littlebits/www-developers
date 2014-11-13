@@ -2,6 +2,7 @@
 @import 'littlebitselectronics/futura-round-family';
 @import './parts/font';
 @import './parts/banner';
+@import './parts/sci-line';
 @import './parts/service-card';
 
 
@@ -41,7 +42,7 @@ html, body {
 
 
 .routes {
-  width: 40rem;
+  max-width: 40rem;
   margin: 1rem auto;
 }
 

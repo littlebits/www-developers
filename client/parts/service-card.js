@@ -7,13 +7,13 @@ var serviceCard = r.createClass({
   displayName: 'service-card',
   getDefaultProps: function() {
     return {
-      title: 'Service'
+      head: 'Service'
     }
   },
   render: function() {
     return e.
-    div({ className: 'serviceCard serviceCard--' + slug(this.props.title) },
-      e.h1({ className: 'fontTitle' }, this.props.title),
+    div({ className: 'serviceCard' },
+      e.h1({ className: 'fontTitle' }, this.props.head),
       e.p({}, this.props.children)
     )
   }
