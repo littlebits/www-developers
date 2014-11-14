@@ -4,8 +4,8 @@ with hand-written data from our docs file. */
 
 var debug = require('visionmedia/debug')('www-developers')
 var { fromJS } = require('facebook/immutable-js@3.1.0:dist/immutable.js')
-var routesMachine = fromJS(require('./api-http-routes.json'))
-var routesMeta = fromJS(require('./api-http-meta.yaml'))
+var routesMachine = fromJS(require('./data-routes.json'))
+var routesMeta = fromJS(require('./data-routes.yaml'))
 
 
 
