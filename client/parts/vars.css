@@ -1,3 +1,11 @@
 :root {
   --var-color-red: hsl(0, 90%, 63%);
+  --var-color-grey: hsl(0, 0%, 90%);
 }
+
+
+
+@custom-media --lg screen and (min-width: 651px);
+@custom-media --md-up screen and (min-width: 451px);
+@custom-media --md-only screen and (max-width: 650px) and (min-width: 451px);
+@custom-media --sm screen and (max-width: 450px);

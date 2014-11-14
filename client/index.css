@@ -1,6 +1,7 @@
 @import 'simonwhitaker/github-fork-ribbon-css:gh-fork-ribbon.css';
 @import 'suitcss/base';
 @import 'littlebitselectronics/futura-round-family';
+@import './parts/vars';
 @import './parts/font';
 @import './parts/banner';
 @import './parts/sci-line';
@@ -92,10 +93,52 @@ a {
   color: #2aa198;
 }
 
+a:target,
 a:hover {
-  color: #de1601;
+  color: hsl(257, 42%, 40%) !important;
+  background-color: hsla(264, 73%, 54%, 0.12);
 }
 
 a:target {
-  color: #115160 !important;
+  outline: none;
+}
+
+.section-head {
+  margin: 2rem;
+  border-bottom: 1px solid var(--var-color-grey);
+}
+
+
+@media (--md-up) {
+  .toc {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.toc {
+  margin: 0 2rem;
+}
+
+.toc-section {
+  margin-top: 2rem;
+}
+
+
+.toc-section-item a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding-left: 0.25em;
+  margin-left: -0.25em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  border-radius: 2px;
+}
+
+.toc-section-title {
+  font-size: 1rem;
+  border-bottom: 1px solid var(--var-color-grey);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }

@@ -8,13 +8,14 @@ var serviceCard = require('./parts/service-card')
 var sciLine = require('./parts/sci-line')
 var params = require('./parts/params')
 
-var e = React.DOM
-var T = React.PropTypes
-var F = React.createFactory
+var r = React
+var e = r.DOM
+var t = r.PropTypes
+var F = r.createFactory
 
 
 
-var App = React.createClass({
+var App = r.createClass({
   displayName: 'app',
   getInitialState: function() {
     return {
@@ -29,8 +30,9 @@ var App = React.createClass({
     div({ className: 'app' },
       banner(null),
       renderServiceCards(this.state),
-      sectionHead({ className: 'container', title: this.state.currentSection }),
-      renderRoutes(this.state)
+      sectionHead({ className: '', title: this.state.currentSection }),
+      toc({ routes: this.state.routesData })
+      //renderRoutes(this.state)
     )
   }
 })
@@ -59,6 +61,34 @@ function renderRoutes(state) {
   )
 }
 
+var toc = r.createFactory(r.createClass({
+  displayName: 'table-of-contents',
+  propTypes: {
+    route: t.object.isRequired
+  },
+  render: function() {
+    var resources = byResource(this.props.routes)
+    return e.
+    div({ className: 'toc' },
+      resources.map(function(resource, path) {
+        return e.
+        div({ className: 'toc-section' },
+          e.h1({ className: 'toc-section-title' }, path),
+          e.div({ className: 'toc-section-item' }, resource.map(function(route) {
+            return e.a({ id: route.get('id'), href: `#${route.get('id')}` }, route.get('method'))
+          }).toJS())
+        )
+      k}).toList().toJS()
+    )
+  }
+}))
+
+
+function byResource(routes) {
+  return routes.groupBy(function(route){
+    return route.get('path')
+  })
+}
 
 
 function RouteMapper(route) {
@@ -79,12 +109,12 @@ function routeKey(route) {
 var Route = F(React.createClass({
   displayName: 'route',
   propTypes: {
-    route: T.object.isRequired
+    route: t.object.isRequired
   },
   render: function() {
     var route = this.props.route
     return e.
-    section({ className: 'route container' },
+    section({ className: 'route' },
       headerEl({ route: route }),
       summaryEl({ route: route }),
       params({ route: route })

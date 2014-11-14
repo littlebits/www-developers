@@ -8,4 +8,5 @@ services:
     summary: 'We support Implicit Grants for your client-side apps and Authorization Code Grants for your server-side services.'
     badge: Coming Soon
   - name: Libraries
+    badge: Coming Soon
     summary: 'Interface with our fluent JavaScript wrappers or pick from community libs to program in your language of choice.'

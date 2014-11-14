@@ -30,9 +30,7 @@
   right: 30px;
 }
 
-@custom-media --lg screen and (min-width: 651px);
-@custom-media --md-only screen and (max-width: 650px) and (min-width: 451px);
-@custom-media --sm screen and (max-width: 450px);
+
 
 @media (--lg) {
   .serviceCard {
