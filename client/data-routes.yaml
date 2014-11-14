@@ -29,6 +29,14 @@
     - name: publisher_events
       summary: What types of events do you want the subscriber to receive?
 
+- path: '/subscriptions'
+  method: GET
+  summary: Get the subscriptions, subscribers, or both of a device or registerd callback.
+
+- path: '/subscriptions'
+  method: DELETE
+  summary: Delete either a subscription between devices or a registered callback.
+
 - path: '/devices/{device_id}/output'
   method: POST
   summary: Write amplitude to device output.
