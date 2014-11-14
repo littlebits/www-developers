@@ -73,14 +73,15 @@ h2 {
 }
 
 a {
-  color: #2aa198;
+  color: var(--color-purple);
   text-decoration: none;
+  padding: 0.2em 0.5em;
+  margin-left: -0.5em;
 }
 
 a:target,
 a:hover {
-  color: hsl(257, 42%, 40%) !important;
-  background-color: hsla(264, 73%, 54%, 0.12);
+  background-color: color(var(--color-purple) a(-0.88));
 }
 
 a:active {

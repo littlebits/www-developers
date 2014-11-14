@@ -1,5 +1,6 @@
 :root {
   --color-red: hsl(0, 90%, 63%);
+  --color-purple: hsl(257, 42%, 40%);
   --color-shade1: hsla(0, 0%, 0%, 0.10);
   --color-shade2: hsla(0, 0%, 0%, 0.06);
   --color-shade3: hsla(0, 0%, 0%, 0.03);
