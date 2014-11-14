@@ -1,20 +1,17 @@
-// Build routes data. Combine machine-generated data from the HTTP API
-// with hand-written data from our docs file.
+
+/* Build routes data. Combine machine-generated data from the HTTP API
+with hand-written data from our docs file. */
+
 var debug = require('visionmedia/debug')('www-developers')
-var Immutable = require('facebook/immutable-js@3.1.0:dist/immutable.js')
-var routesMachine = Immutable.fromJS(require('./api-http-routes.json'))
-var routesMeta = Immutable.fromJS(require('./api-http-meta.yaml'))
+var { fromJS } = require('facebook/immutable-js@3.1.0:dist/immutable.js')
+var routesMachine = fromJS(require('./api-http-routes.json'))
+var routesMeta = fromJS(require('./api-http-meta.yaml'))
 
 
 
-module.exports = routesMeta
+module.exports = routesMeta.map(function(meta) {
 
-.map(function(meta) {
-
-  var i = routesMachine.findIndex(function(route) {
-    return meta.get('path') === route.get('path') &&
-           meta.get('method') === route.get('method')
-  })
+  var i = routesMachine.findIndex(isEqualRoute.bind(null, meta))
 
   if (i === -1) {
     console.error('Failed to compile route data because manual data had no match in machine data: ', meta.toJS())
@@ -22,20 +19,44 @@ module.exports = routesMeta
   }
 
   return routesMachine.get(i)
-    .set('meta', meta.update('path', shortId))
-    .update('path', shortId)
-    .set('id', uid(routesMachine.get(i)))
+
+    /* Merge the machine data with our hand-written
+    data. TODO we are shortening device_id in two
+    places because we need to spend more time making
+    a decent deep merge. */
+    .set('meta', meta.update('path', shortenDeviceId))
+
+    /* It is useful to have a unique id per route
+    for React list-item rendering purposes as, and also
+    anchor links etc. */
+    .set('id', routeId(routesMachine.get(i)))
+
+    /* The string "device_id" in the route path
+    is long and makes view layout harder. Make it
+    sweet and short. */
+    .update('path', shortenDeviceId)
 })
 
-.filter(function(x){ return x })
+/* Clear any null values we
+may have  encountered while
+matching */
+.filter( x => x )
 
 debug('resolved routes data:', module.exports.toJS())
 
 
-function shortId(path) {
+
+// Helpers
+
+function isEqualRoute(routeA, routeB) {
+  return routeA.get('path') === routeB.get('path') &&
+         routeA.get('method') === routeB.get('method')
+}
+
+function shortenDeviceId(path) {
   return path.replace('device_id', 'id')
 }
 
-function uid(route) {
+function routeId(route) {
   return route.get('method') + '-' + route.get('path').replace(/\//g,'--')
 }
