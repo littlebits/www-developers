@@ -3,12 +3,20 @@
   summary: Get information about all your devices.
 
 - path: '/devices/{device_id}'
+  method: POST
+  summary: Register a device in the database associated with given user and initial settings.
+
+- path: '/devices/{device_id}'
   method: GET
   summary: Get device information and current settings.
 
 - path: '/devices/{device_id}'
   method: PUT
   summary: Update device settings.
+
+- path: '/devices/{device_id}'
+  method: DELETE
+  summary: Remove device from database, dissaociating user.
 
 - path: '/subscriptions'
   method: POST

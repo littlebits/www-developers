@@ -10,7 +10,6 @@
 }
 
 .serviceCard {
-  width: 15rem;
   min-height: 15rem;
   background-color: hsl(159, 76%, 43%);
   color: hsl(0, 100%, 100%);
@@ -31,18 +30,7 @@
 }
 
 
-
-@media (--lg) {
-  .serviceCard {
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-  }
-  .serviceCard:last-child {
-    border-right: transparent;
-  }
-}
-
-@media (--md-only) {
+@media (--md-up) {
   .serviceCard {
     width: 50%;
     border-right: transparent;
@@ -53,9 +41,13 @@
   }
 }
 
-@media (--sm) {
+@media (--xlg) {
   .serviceCard {
-    width: auto;
+    width: 15rem;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+  }
+  .serviceCard:last-child {
     border-right: transparent;
   }
 }
