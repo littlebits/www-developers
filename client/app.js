@@ -32,8 +32,8 @@ module.exports = r.createClass({
       banner(null),
       renderServiceCards(this.state),
       sectionHead({ className: '', title: this.state.currentSection }),
-      toc({ routes: this.state.routesData })
-      //renderRoutes(this.state)
+      toc({ routes: this.state.routesData }),
+      renderRoutes(this.state)
     )
   }
 })
@@ -57,7 +57,7 @@ function renderRoutes(state) {
   div({ className: 'routes' },
     state.routesData
     .filter(isVersion(state.version))
-    .map(RouteMapper)
+    .map( route => Route({ key: route.id, route: route }) )
     .toJS()
   )
 }
@@ -68,15 +68,6 @@ function renderRoutes(state) {
 
 
 
-function RouteMapper(route) {
-  return Route({ key: routeKey(route), route: route })
-}
-
-function routeKey(route) {
-  return route.get('method') +
-         route.get('version') +
-         route.get('path')
-}
 
 
 
@@ -100,7 +91,10 @@ var Route = F(React.createClass({
 }))
 
 var headerEl = ELEM('route-header', 'h1', function(props){
-  return props.route.get('method') + ' ' + props.route.get('path')
+  return e.
+  a({ id: props.route.get('id'), href: `#${props.route.get('id')}` },
+    props.route.get('path') + ' ' + props.route.get('method')
+  )
 })
 
 var summaryEl = ELEM('route-summary', 'p', function(props){

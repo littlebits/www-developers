@@ -1,0 +1,25 @@
+/*.params > *:not(:last-child) {
+  margin-bottom: 1rem;
+}*/
+.params p {
+  margin: 0;
+}
+
+.param {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.param-name-col {
+  width: 12rem;
+  flex-shrink: 0;
+}
+
+
+.param-summary-col {
+  margin-top: 1rem;
+  flex-grow: 1;
+}
+
+.param-name {
+}

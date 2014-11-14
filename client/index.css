@@ -8,6 +8,7 @@
 @import './parts/service-card';
 @import './parts/badge';
 @import './parts/toc';
+@import './parts/params';
 
 
 
@@ -35,13 +36,18 @@
 }
 
 html {
-  line-height: 1.33333;
-  font-size: 16px
+  font: 16px/1.33333 sans-serif;
 }
 
 html, body {
   height: 100%;
   width: 100%;
+}
+
+h2 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .container {
@@ -53,45 +59,23 @@ html, body {
 }
 
 .route {
-  background: #EFEFEF;
-  padding: 1rem;
+  margin: 2rem;
+  margin-top: 5rem;
 }
 
 
 .route-header {
-  font-family: courier;
-  font-size: 1rem;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .route-summary {
 
 }
 
-
-h2 {
-  margin-top: 1rem;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.params > *:not(:last-child){
-  margin-bottom: 1rem;
-}
-
-.param-name {
-  font-family: courier;
-  margin-bottom: 1rem;
-}
-
-.param-summary {
-  margin-top: 1rem;
-}
-
-
-
 a {
   color: #2aa198;
+  text-decoration: none;
 }
 
 a:target,
@@ -111,5 +95,5 @@ a:target {
 
 .section-head {
   margin: 2rem;
-  border-bottom: 1px solid var(--color-grey);
+  border-bottom: 1px solid var(--color-shade1);
 }

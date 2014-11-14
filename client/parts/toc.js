@@ -17,7 +17,7 @@ module.exports = r.createFactory(r.createClass({
         div({ className: 'toc-section' },
           e.h1({ className: 'toc-section-title' }, path),
           e.div({ className: 'toc-section-item' }, resource.map(function(route) {
-            return e.a({ id: route.get('id'), href: `#${route.get('id')}` }, route.get('method'))
+            return e.a({ href: `#${route.get('id')}` }, route.get('method'))
           }).toJS())
         )
       k}).toList().toJS()

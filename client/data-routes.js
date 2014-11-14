@@ -58,5 +58,7 @@ function shortenDeviceId(path) {
 }
 
 function routeId(route) {
-  return route.get('method') + '-' + route.get('path').replace(/\//g,'--')
+  return route.get('version') + '-' +
+  route.get('method') + '-' +
+  route.get('path').replace(/\//g,'--')
 }

@@ -3,8 +3,6 @@ var App = require('./app')
 var $ = document.querySelector.bind(document)
 
 
-
-
 // Boot the application
 
 bootstrap(App)

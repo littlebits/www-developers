@@ -1,15 +1,39 @@
 .fontHeading {
-  font-family: 'Futura Round';
+  font-family: 'Futura Round', sans-serif;
   font-weight: 300;
   font-size: 2rem;
 }
 
 .fontTitle {
-  font-family: 'Futura Round';
+  font-family: 'Futura Round', sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
 }
 
+.fontSubTitle {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: 'Futura Round';
+  letter-spacing: 0.05em;
+  text-rendering: optimizeLegibility;
+}
+
+.fontCode {
+  font-family: monospace;
+  background: var(--color-shade2);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+
+
+/*
+Common to all classes
+*/
+
+.fontSubTitle:not(:last-child),
 .fontHeading:not(:last-child),
 .fontTitle:not(:last-child) {
   margin-bottom: 1em;
