@@ -19,12 +19,17 @@
   text-rendering: optimizeLegibility;
 }
 
+.codeBlock,
 .fontCode {
   font-family: monospace;
   background: var(--color-shade2);
   padding: 0.2em 0.5em;
-  border-radius: 4px;
+  border-radius: 2px;
   font-size: 0.9rem;
+}
+
+.codeBlock {
+  padding: 1rem;
 }
 
 
@@ -33,6 +38,7 @@
 Common to all classes
 */
 
+p:not(:last-child),
 .fontSubTitle:not(:last-child),
 .fontHeading:not(:last-child),
 .fontTitle:not(:last-child) {

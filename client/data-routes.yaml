@@ -1,10 +1,31 @@
 - path: '/devices'
   method: GET
   summary: Get information about all your devices.
+  examples:
+    - description: Get information about all devices.
+      responseCode: 200
+      responseBody:
+        - id: "foobar"
+          label: "My cloudBit"
+          subscribers: []
+          subscriptions: []
+          user_id: "1"
+          wifi: {}
 
 - path: '/devices/{device_id}'
   method: POST
-  summary: Register a device in the database associated with given user and initial settings.
+  summary: Create a device in the database and associate it with the user. User is known through the `access_token` being used.
+  examples:
+    - description: Any field `PUT` accepts may be used here.
+      requestBody:
+        label: Water my plants
+      responseBody:
+        id: a84hf038ierj
+        label: Water my plants
+        subscribers: []
+        subscriptions: []
+        user_id: "1"
+        wifi: {}
 
 - path: '/devices/{device_id}'
   method: GET

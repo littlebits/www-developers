@@ -6,8 +6,9 @@ var { ELEM } = require('./utils')
 var banner = require('./parts/banner')
 var serviceCard = require('./parts/service-card')
 var sciLine = require('./parts/sci-line')
-var params = require('./parts/params')
+var paramsEl = require('./parts/params')
 var toc = require('./parts/toc')
+var examplesEl = require('./parts/examples')
 
 var r = React
 var e = r.DOM
@@ -23,6 +24,8 @@ module.exports = r.createClass({
       version: '2',
       routesData: routesData,
       locales: locals,
+      apiTestToken: '3827s05s6203mxh58sj25f01mlauej',
+      apiTestDeviceId: 'a6e29co10284',
       currentSection: 'HTTP API'
     }
   },
@@ -85,10 +88,14 @@ var Route = F(React.createClass({
     section({ className: 'route' },
       headerEl({ route: route }),
       summaryEl({ route: route }),
-      params({ route: route })
+      examplesEl({ route: route }),
+      paramsEl({ route: route })
     )
   }
 }))
+
+
+
 
 var headerEl = ELEM('route-header', 'h1', function(props){
   return e.
