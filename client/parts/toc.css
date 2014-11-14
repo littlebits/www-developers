@@ -27,7 +27,7 @@
 
 .toc-section-title {
   font-size: 1rem;
-  border-bottom: 1px solid var(--var-color-grey);
+  border-bottom: 1px solid var(--color-grey);
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
 }

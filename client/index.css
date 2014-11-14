@@ -100,11 +100,16 @@ a:hover {
   background-color: hsla(264, 73%, 54%, 0.12);
 }
 
+a:active {
+  color: var(--color-red) !important;
+  background-color: color(var(--color-red) a(-0.88)) !important;
+}
+
 a:target {
   outline: none;
 }
 
 .section-head {
   margin: 2rem;
-  border-bottom: 1px solid var(--var-color-grey);
+  border-bottom: 1px solid var(--color-grey);
 }
