@@ -18,25 +18,6 @@
   method: DELETE
   summary: Remove device from database, dissaociating user.
 
-- path: '/subscriptions'
-  method: POST
-  summary: Create a subscription
-  bodyParams:
-    - name: subscriber_id
-      summary: A device ID or URI.
-    - name: publisher_id
-      summary: A device ID
-    - name: publisher_events
-      summary: What types of events do you want the subscriber to receive?
-
-- path: '/subscriptions'
-  method: GET
-  summary: Get the subscriptions, subscribers, or both of a device or registerd callback.
-
-- path: '/subscriptions'
-  method: DELETE
-  summary: Delete either a subscription between devices or a registered callback.
-
 - path: '/devices/{device_id}/output'
   method: POST
   summary: Write amplitude to device output.
@@ -56,3 +37,22 @@
   method: GET
   summary: Read stream of amplitude from device input.
   bodyParams: []
+
+- path: '/subscriptions'
+  method: POST
+  summary: Create a subscription
+  bodyParams:
+    - name: subscriber_id
+      summary: A device ID or URI.
+    - name: publisher_id
+      summary: A device ID
+    - name: publisher_events
+      summary: What types of events do you want the subscriber to receive?
+
+- path: '/subscriptions'
+  method: GET
+  summary: Get the subscriptions, subscribers, or both of a device or registerd callback.
+
+- path: '/subscriptions'
+  method: DELETE
+  summary: Delete either a subscription between devices or a registered callback.
