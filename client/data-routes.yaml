@@ -24,8 +24,23 @@
 
 - path: '/devices/{device_id}/input'
   method: GET
-  summary: Read stream of amplitude from device input.
+  summary: Read a stream of amplitude from device input. This requires that your HTTP Client supports Server Sent Events (SSE).
   bodyParams: []
+  examples:
+    - description: Unlike the typical HTTP request/response cycle, SSE works such that the server response is an open pipe sending data at will. The response below shows what one data even contains.
+      responseBody:
+        type: input
+        timestamp: 1416007639847
+        percent: 38
+        from:
+          user:
+            id: 1
+          device:
+            id: a
+            ap:
+              ssid: littlebitsTC
+              strength: 4
+              mac: ab:12:cd:34:ef:56
 
 
 
@@ -42,7 +57,6 @@
           subscriptions: []
           user_id: "1"
           wifi: {}
-
 
 
 - path: '/devices/{device_id}'
