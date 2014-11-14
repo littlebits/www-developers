@@ -1,3 +1,7 @@
+@import 'simonwhitaker/github-fork-ribbon-css:gh-fork-ribbon.css';
+
+
+
 .banner {
   height: 20rem;
   display: flex;
@@ -8,14 +12,21 @@
 
 
 .github-fork-ribbon {
-  background-color: white;
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid currentcolor;
+  color: white;
+  padding: 0;
 }
 
 .github-fork-ribbon a {
-  color: #444;
-  text-shadow: none;
+  color: inherit;
+  padding: 0.3em 0 !important;
+  text-shadow: none !important;
+  border: none !important;
 }
+
 .github-fork-ribbon a:hover {
-  color: black;
-  text-shadow: none;
+  background: white;
+  /*color: black;*/
 }
