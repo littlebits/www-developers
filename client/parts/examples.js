@@ -25,15 +25,17 @@ module.exports = ELEM('route-examples', function(props){
     e.ul({ className: 'examples'},
       examples.map(function(example) {
         var body = example.get('requestBody', Map()).toJS()
-        return e.li(null,
+        var responseBody = example.get('responseBody')
+        return e.li({ className: 'example' },
           e.p(null, example.get('description')),
           e.pre({ className: 'codeBlock' },
             asCurl({ root: root, path: path, pathArgs: pathArgs, method: method, body: body })
           ),
-          e.br(),
-          e.pre({ className: 'codeBlock'},
-            JSON.stringify(example.get('responseBody'), null, 2)
-          )
+          responseBody
+            ? e.pre({ className: 'codeBlock'},
+                JSON.stringify(responseBody, null, 2)
+              )
+            : null
         )
       }).toJS()
     )

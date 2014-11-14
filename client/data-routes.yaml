@@ -1,6 +1,6 @@
 - path: '/devices'
   method: GET
-  summary: Get information about all your devices.
+  summary: ''
   examples:
     - description: Get information about all devices.
       responseCode: 200
@@ -29,19 +29,42 @@
 
 - path: '/devices/{device_id}'
   method: GET
-  summary: Get device information and current settings.
+  summary: ''
+  examples:
+    - description: Get device information and current settings.
+      responseBody:
+        id: "foobar"
+        label: "My cloudBit"
+        subscribers: []
+        subscriptions: []
+        user_id: "1"
+        wifi: {}
+
 
 - path: '/devices/{device_id}'
   method: PUT
-  summary: Update device settings.
+  summary: ''
+  examples:
+    - description: Update device settings.
+      requestBody:
+        label: 'Door Bell'
+      responseBody:
+        id: "foobar"
+        label: "Door Bell"
+        subscribers: []
+        subscriptions: []
+        user_id: "1"
+        wifi: {}
+
 
 - path: '/devices/{device_id}'
   method: DELETE
-  summary: Remove device from database, dissaociating user.
+  summary: Remove device record from database, including user association.
+
 
 - path: '/devices/{device_id}/output'
   method: POST
-  summary: Write amplitude to device output.
+  summary: Write amplitude to device output. This endpoint always returns 200 "OK" regardless of if the device is actually connected.
   bodyParams:
     - name: percent
       summary: What percentage of amplitude to write
@@ -53,6 +76,13 @@
       summary: Sustain the given output percentage for n milliseconds.
       required: false
       default: 3000
+  examples:
+    - description: 'By default maximum amplitude is sent for 3 seconds:'
+      responseBody: OK
+    - description: 'This outputs 10% amplitude for 10 seconds:'
+      requestBody:
+        percent: 10
+        duration_ms: 10000
 
 - path: '/devices/{device_id}/input'
   method: GET

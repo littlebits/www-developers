@@ -23,6 +23,7 @@
 .fontCode {
   font-family: monospace;
   background: var(--color-shade2);
+  color: color(black a(0.8));
   padding: 0.2em 0.5em;
   border-radius: 2px;
   font-size: 0.9rem;

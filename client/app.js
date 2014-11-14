@@ -88,8 +88,8 @@ var Route = F(React.createClass({
     section({ className: 'route' },
       headerEl({ route: route }),
       summaryEl({ route: route }),
-      examplesEl({ route: route }),
-      paramsEl({ route: route })
+      paramsEl({ route: route }),
+      examplesEl({ route: route })
     )
   }
 }))

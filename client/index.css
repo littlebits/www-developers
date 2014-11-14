@@ -96,3 +96,12 @@ a:target {
   margin: 2rem;
   border-bottom: 1px solid var(--color-shade1);
 }
+
+
+
+
+
+.example:not(:last-child),
+.examples pre:not(:last-child) {
+  margin-bottom: 1rem;
+}
