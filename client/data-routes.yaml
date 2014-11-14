@@ -51,17 +51,17 @@
     - description: Get information about all devices.
       responseCode: 200
       responseBody:
-        - id: "foobar"
-          label: "My cloudBit"
+        - id: a84hf038ierj
+          label: My cloudBit
           subscribers: []
           subscriptions: []
-          user_id: "1"
+          user_id: 1
           wifi: {}
 
 
 - path: '/devices/{device_id}'
   method: POST
-  summary: Create a device in the database and associate it with the user. User is known through the `access_token` being used.
+  summary: Create a device in the database and associate it with the user.
   examples:
     - description: Any field `PUT` accepts may be used here.
       requestBody:
@@ -71,7 +71,7 @@
         label: Water my plants
         subscribers: []
         subscriptions: []
-        user_id: "1"
+        user_id: 1
         wifi: {}
 
 
@@ -82,11 +82,11 @@
   examples:
     - description: Get device information and current settings.
       responseBody:
-        id: "foobar"
-        label: "My cloudBit"
+        id: a84hf038ierj
+        label: My cloudBit
         subscribers: []
         subscriptions: []
-        user_id: "1"
+        user_id: 1
         wifi: {}
 
 
@@ -97,13 +97,13 @@
   examples:
     - description: Update device settings.
       requestBody:
-        label: 'Door Bell'
+        label: Door Bell
       responseBody:
-        id: "foobar"
-        label: "Door Bell"
+        id: a84hf038ierj
+        label: Door Bell
         subscribers: []
         subscriptions: []
-        user_id: "1"
+        user_id: 1
         wifi: {}
 
 
@@ -125,6 +125,18 @@
       summary: A device ID
     - name: publisher_events
       summary: What types of events do you want the subscriber to receive?
+  examples:
+    - descripton: 'Make a device `a84hf038ierj` receive anything published by `bu1tei32i9r9`:'
+      requestBody:
+        subscriber_id: a84hf038ierj
+        publisher_id: bu1tei32i9r9
+        publisher_events: ['amplitude:delta:ignite']
+      responseBody:
+        subscriber_id: a
+        publisher_id: a2
+        publisher_events:
+          - name: "amplitude:delta:ignite"
+
 
 
 
