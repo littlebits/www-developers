@@ -28,5 +28,5 @@
 
 .github-fork-ribbon a:hover {
   background: white;
-  /*color: black;*/
+  color: var(--color-purple);
 }
