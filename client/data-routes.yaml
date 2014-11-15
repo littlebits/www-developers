@@ -170,4 +170,9 @@
 
 - path: '/subscriptions'
   method: DELETE
-  summary: Delete either a subscription between devices or a registered callback.
+  summary: Delete a subscription.
+  bodyParams:
+    - name: subscriber_id
+      summary: A device ID or URI. This limits the delete to only subscriptions where this ID is the subscriber.
+    - name: publisher_id
+      summary: A device ID. This limits the delete to only subscriptions where this ID is the publisher.
