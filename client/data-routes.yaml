@@ -117,7 +117,12 @@
 
 - path: '/subscriptions'
   method: POST
-  summary: Create a subscription
+  summary: |
+    Create a subscription. There are two types that you may create: make one device follow another, or register a webhook. Which one you create simply depends on the value of `subscriber_id`. Make it a valid URI that you know will accept a POST request with a JSON body and that will respond with a 200 (body does not matter).
+
+    In the first case, a device following another, the result is this: Whatever amplitude the publisher is emitting the follower will copy. In the second case, a webhook, the result is that our Cloud will send an HTTP POST it every time there is device input. See examples below for more details.
+
+    In both types you may filter only certain patterns. Also, coming soon in our V3 API, you will be able to use a vastly-superior pattern-matching system.
   bodyParams:
     - name: subscriber_id
       summary: A device ID or URI.
@@ -136,7 +141,7 @@
         amplitude:level:active       high voltage
         amplitude:level:idle           low voltage
   examples:
-    - descripton: 'Make a device `a84hf038ierj` receive anything published by `bu1tei32i9r9`:'
+    - description: 'Make a device `a84hf038ierj` receive anything published by `bu1tei32i9r9`:'
       requestBody:
         subscriber_id: a84hf038ierj
         publisher_id: bu1tei32i9r9
@@ -146,7 +151,24 @@
         publisher_id: bu1tei32i9r9
         publisher_events:
           - name: "amplitude:delta:ignite"
-
+    - description: 'Register a webhook. The response below is NOT the registration response but rather an example of the request that will be POSTed to `https://my-server.io` every time there is new device input:'
+      requestBody:
+        subscriber_id: "https://my-server.io"
+        publisher_id: bu1tei32i9r9
+        publisher_events: ['amplitude:delta:release']
+      responseBody:
+        type: input
+        timestamp: 1416007639847
+        percent: 38
+        from:
+          user:
+            id: 1
+          device:
+            id: a
+            ap:
+              ssid: littlebitsTC
+              strength: 4
+              mac: ab:12:cd:34:ef:56
 
 
 

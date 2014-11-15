@@ -39,6 +39,7 @@ h2 {
 
 html {
   font: 16px/1.33333 sans-serif;
+  color: hsla(0, 0%, 0%, 0.85);
 }
 
 html, body {
@@ -77,8 +78,8 @@ h2 {
   margin-bottom: 1em;
 }
 
-.route-summary {
-
+.route-head p {
+  white-space: pre-wrap;
 }
 
 a {
