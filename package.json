@@ -25,12 +25,10 @@
     "duo-yaml": "0.0.1",
     "hapi": "^7.3.0",
     "jade": "^0.35.0",
-    "marked": "~0.2.10"
+    "marked": "~0.2.10",
+    "myth": "^1.2.1"
   },
   "devDependencies": {
-    "duo": "^0.8.9",
-    "duo-yaml": "0.0.1",
-    "myth": "^1.2.1",
     "node-dev": "~2.1.6"
   }
 }
