@@ -1,5 +1,6 @@
 var path = require('path')
 var cp = require('child_process')
+var config = require('./config')
 
 
 
