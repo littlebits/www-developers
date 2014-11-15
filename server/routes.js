@@ -7,7 +7,7 @@ module.exports = function(server){
 
   server.route([
     {
-      path: '/',
+      path: '/preview',
       method: 'get',
       handler: {
         view: 'index'

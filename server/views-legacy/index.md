@@ -21,5 +21,5 @@ some resources to get you up and running.
 ## Documentation & Examples
 
 * [Getting started with the HTTP API](https://github.com/littlebits/cloud-api-lessons)
-* [Documentation: HTTP REST API](/v2/api-http)
-* [Documentation: Websocket Streaming API](/v2/api-stream)
+* [Documentation: HTTP REST API](/api-http)
+* [Documentation: Websocket Streaming API](/api-stream)

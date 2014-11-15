@@ -17,27 +17,27 @@ module.exports = function(server) {
 
   server.route([
     {
-      path: '/v2',
+      path: '/',
       method: 'get',
       handler: serve_file_md('api-http.md')
     },
     {
-      path: '/v2/api-http/auth',
+      path: '/api-http/auth',
       method: 'get',
       handler: serve_file_md('api-authorization.md')
     },
     {
-      path: '/v2/api-http/auth-implementation',
+      path: '/api-http/auth-implementation',
       method: 'get',
       handler: serve_file_md('api-authorization-implementation.md')
     },
     {
-      path: '/v2/access',
+      path: '/access',
       method: 'get',
       handler: serve_file_md('access.md')
     },
     {
-      path: '/v2/workshop',
+      path: '/workshop',
       method: 'get',
       handler: serve_file_md('workshop.md')
     }

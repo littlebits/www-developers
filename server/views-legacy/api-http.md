@@ -10,7 +10,7 @@ Example:
 
     curl -i -XGET -H "Authorization: Bearer foobar" ...
 
-* [Find out how to get your access token here.](/v2/access)
+* [Find out how to get your access token here.](/access)
 * [Auth resources](#resources)
 
 ## Version
@@ -32,7 +32,7 @@ For quick experimentation purposes only the `version` can be specified at the UR
 
 Example:
 
-    curl -i XGET ... api-http.littlebitscloud.cc/v2/devices
+    curl -i XGET ... api-http.littlebitscloud.cc/devices
 
 
 
