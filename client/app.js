@@ -86,8 +86,7 @@ var Route = F(React.createClass({
     var route = this.props.route
     return e.
     section({ className: 'route' },
-      headerEl({ route: route }),
-      summaryEl({ route: route }),
+      headEl({ route: route }),
       paramsEl({ route: route }),
       examplesEl({ route: route })
     )
@@ -97,16 +96,15 @@ var Route = F(React.createClass({
 
 
 
-var headerEl = ELEM('route-header', 'h1', function(props){
-  return e.
-  a({ id: props.route.get('id'), href: `#${props.route.get('id')}` },
-    props.route.get('path') + ' ' + props.route.get('method')
-  )
+var headEl = ELEM('route-head',  function(props){
+  return [
+    e.a({ id: props.route.get('id'), href: `#${props.route.get('id')}` },
+      e.h1(null, props.route.get('path') + ' ' + props.route.get('method'))
+    ),
+    e.p(null, props.route.getIn(['meta', 'summary']))
+  ]
 })
 
-var summaryEl = ELEM('route-summary', 'p', function(props){
-  return props.route.getIn(['meta', 'summary'])
-})
 
 
 

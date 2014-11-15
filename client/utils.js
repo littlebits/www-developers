@@ -49,9 +49,9 @@ exports.asCurl = function asCurl({ root, path, pathArgs, method, query, body, ve
   pathArgs = pathArgs || {}
   var uri = root + resolvePath(path, pathArgs) + stringifyQuery(query)
   return `
-  curl -X${method} ${uri} \
-  -H 'Authorization: Bearer ${token}' \
-  -H 'Accept: application/vnd.littlebits.v${version}+json'${dataFlag(body)}`
+curl -X${method} ${uri} \
+     -H 'Authorization: Bearer ${token}' \
+     -H 'Accept: application/vnd.littlebits.v${version}+json'${dataFlag(body)}`
 }
 
 function resolvePath(path, pathArgs) {
@@ -73,6 +73,6 @@ function stringifyQuery(queryObject = {}) {
 function dataFlag(data) {
   return typeof data === 'object' && Object.keys(data).length ?
   ` \
-  --data '${JSON.stringify(data)}'`
+     --data '${JSON.stringify(data)}'`
   : ''
 }

@@ -19,6 +19,7 @@
       requestBody:
         percent: 10
         duration_ms: 10000
+      responseBody: OK
 
 
 
@@ -27,7 +28,7 @@
   summary: Read a stream of amplitude from device input. This requires that your HTTP Client supports Server Sent Events (SSE).
   bodyParams: []
   examples:
-    - description: Unlike the typical HTTP request/response cycle, SSE works such that the server response is an open pipe sending data at will. The response below shows what one data even contains.
+    - description: "Unlike the typical HTTP request/response cycle, SSE works such that the server response is an open pipe sending data at will. The response below shows what one data even contains:"
       responseBody:
         type: input
         timestamp: 1416007639847
@@ -48,8 +49,7 @@
   method: GET
   summary: ''
   examples:
-    - description: Get information about all devices.
-      responseCode: 200
+    - description: "Get information about all devices:"
       responseBody:
         - id: a84hf038ierj
           label: My cloudBit
@@ -63,7 +63,7 @@
   method: POST
   summary: Create a device in the database and associate it with the user.
   examples:
-    - description: Any field `PUT` accepts may be used here.
+    - description: "Any field `PUT` accepts may be used here:"
       requestBody:
         label: Water my plants
       responseBody:
@@ -80,7 +80,7 @@
   method: GET
   summary: ''
   examples:
-    - description: Get device information and current settings.
+    - description: "Get device information and current settings:"
       responseBody:
         id: a84hf038ierj
         label: My cloudBit
@@ -95,7 +95,7 @@
   method: PUT
   summary: ''
   examples:
-    - description: Update device settings.
+    - description: "Update device settings:"
       requestBody:
         label: Door Bell
       responseBody:
@@ -170,9 +170,17 @@
 
 - path: '/subscriptions'
   method: DELETE
-  summary: Delete a subscription.
+  summary: Delete a subscription. subscriber_id AND publisher_id are required.
   bodyParams:
     - name: subscriber_id
-      summary: A device ID or URI. This limits the delete to only subscriptions where this ID is the subscriber.
+      summary: A device ID or URI.
+      required: true
     - name: publisher_id
-      summary: A device ID. This limits the delete to only subscriptions where this ID is the publisher.
+      summary: A device ID.
+      required: true
+  examples:
+    - description: ''
+      requestBody:
+        subscriber_id: a84hf038ierj
+        publisher_id: bu1tei32i9r9
+      responseBody: OK
