@@ -18,6 +18,7 @@ module.exports = function(server){
       method: 'get',
       config: {
         pre: [function(req, rep){
+          if (!config.isDev) return rep()
           cp.exec('npm run build-client', function(err){
             if (err) throw err
             rep()
