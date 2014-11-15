@@ -3,6 +3,7 @@
 }*/
 .params p {
   margin: 0;
+  white-space: pre-wrap;
 }
 
 .param {

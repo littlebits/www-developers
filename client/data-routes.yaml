@@ -124,7 +124,17 @@
     - name: publisher_id
       summary: A device ID
     - name: publisher_events
-      summary: What types of events do you want the subscriber to receive?
+      # Beware if editing, the white-space is rendered literally. In a mono-font
+      # it appears ragged but in the browser seems to look good. This is a poor-man's
+      # solution until we have better layout fields.
+      summary: |
+        What types of events do you want the subscriber to receive? The allowed values are:
+
+        amplitude                         anything (default)
+        amplitude:delta:ignite       significant jump
+        amplitude:delta:release    significant drop
+        amplitude:level:active       high voltage
+        amplitude:level:idle           low voltage
   examples:
     - descripton: 'Make a device `a84hf038ierj` receive anything published by `bu1tei32i9r9`:'
       requestBody:
