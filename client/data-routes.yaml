@@ -132,8 +132,8 @@
         publisher_id: bu1tei32i9r9
         publisher_events: ['amplitude:delta:ignite']
       responseBody:
-        subscriber_id: a
-        publisher_id: a2
+        subscriber_id: a84hf038ierj
+        publisher_id: bu1tei32i9r9
         publisher_events:
           - name: "amplitude:delta:ignite"
 
@@ -143,6 +143,28 @@
 - path: '/subscriptions'
   method: GET
   summary: Get the subscriptions, subscribers, or both of a device or registerd callback.
+  queryParams:
+    - name: subscriber_id
+      summary: A device ID or URI. This limits the result to only subscriptions where this ID is the subscriber.
+    - name: publisher_id
+      summary: A device ID. This limits the result to only subscriptions where this ID is the publisher.
+  examples:
+    - description: 'Get everything that follows this device (this may return device IDs OR URIs):'
+      requestQuery:
+        publisher_id: bu1tei32i9r9
+      responseBody:
+        - subscriber_id: a84hf038ierj
+          publisher_id: bu1tei32i9r9
+          publisher_events:
+            - name: 'amplitude:delta:ignite'
+    - description: 'Get everything that this device follows (this may ONLY return device IDs).'
+      requestQuery:
+        subscriber_id: a84hf038ierj
+      responseBody:
+        - subscriber_id: a84hf038ierj
+          publisher_id: bu1tei32i9r9
+          publisher_events:
+            - name: "amplitude:delta:ignite"
 
 
 

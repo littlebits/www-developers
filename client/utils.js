@@ -42,12 +42,12 @@ Transform a route object into a valid curl-able string
 asCurl :: RequestConfig -> String
 
 */
-exports.asCurl = function asCurl({ root, path, pathArgs, method, body, version, token }) {
+exports.asCurl = function asCurl({ root, path, pathArgs, method, query, body, version, token }) {
   version = version || 2
   token = token || 'TOKEN'
   path = path || ''
   pathArgs = pathArgs || {}
-  var uri = root + resolvePath(path, pathArgs)
+  var uri = root + resolvePath(path, pathArgs) + stringifyQuery(query)
   return `
   curl -X${method} ${uri} \
   -H 'Authorization: Bearer ${token}' \
@@ -57,6 +57,17 @@ exports.asCurl = function asCurl({ root, path, pathArgs, method, body, version, 
 function resolvePath(path, pathArgs) {
   return !path ? '' : Object.keys(pathArgs || {})
   .reduce(function(path, pathKey) { return path.replace(`{${pathKey}}`, pathArgs[pathKey]) }, path)
+}
+
+function stringifyQuery(queryObject = {}) {
+
+  var queryString = Object.keys(queryObject).reduce(function(queries, key){
+    return queries.concat([`${key}=${queryObject[key]}`])
+  }, []).join('&')
+
+  if (queryString) queryString = '?' + queryString
+
+  return queryString
 }
 
 function dataFlag(data) {

@@ -25,11 +25,12 @@ module.exports = ELEM('route-examples', function(props){
     e.ul({ className: 'examples'},
       examples.map(function(example) {
         var body = example.get('requestBody', Map()).toJS()
+        var query = example.get('requestQuery', Map()).toJS()
         var responseBody = example.get('responseBody')
         return e.li({ className: 'example' },
           e.p(null, example.get('description')),
           e.pre({ className: 'codeBlock' },
-            asCurl({ root: root, path: path, pathArgs: pathArgs, method: method, body: body })
+            asCurl({ root: root, path: path, pathArgs: pathArgs, method: method, query: query, body: body })
           ),
           responseBody
             ? e.pre({ className: 'codeBlock'},
