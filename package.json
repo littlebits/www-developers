@@ -20,6 +20,7 @@
     "Colin Vernon <colin@littlebits.cc>"
   ],
   "dependencies": {
+    "duo": "^0.8.10",
     "duo-6to5": "0.0.1",
     "hapi": "^7.3.0",
     "jade": "^0.35.0",

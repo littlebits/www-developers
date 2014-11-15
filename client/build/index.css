@@ -1,0 +1,1024 @@
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/**
+ * A thin layer on top of normalize.css that provides a starting point more
+ * suitable for web applications. Removes the default spacing and border for
+ * appropriate elements.
+ */
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+  border: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Suppress the focus outline on links that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ */
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundLight.eot');
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundLight.eot') format('embedded-opentype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundLight.woff') format('woff'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundLight.ttf') format('truetype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundLight.svg') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBook.eot');
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBook.eot') format('embedded-opentype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBook.woff') format('woff'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBook.ttf') format('truetype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBook.svg') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundMedium.eot');
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundMedium.eot') format('embedded-opentype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundMedium.woff') format('woff'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundMedium.ttf') format('truetype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundMedium.svg') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundDemi.eot');
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundDemi.eot') format('embedded-opentype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundDemi.woff') format('woff'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundDemi.ttf') format('truetype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundDemi.svg') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBold.eot');
+  src: url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBold.eot') format('embedded-opentype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBold.woff') format('woff'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBold.ttf') format('truetype'),
+  url('components/littlebitselectronics-futura-round-family@1.0.0/fonts/FuturaRoundBold.svg') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.fontHeading {
+  font-family: 'Futura Round', sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.fontTitle {
+  font-family: 'Futura Round', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.fontSubTitle {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: 'Futura Round';
+  letter-spacing: 0.05em;
+  text-rendering: optimizeLegibility;
+}
+
+.codeBlock,
+.fontCode {
+  font-family: monospace;
+  background: hsla(0, 0%, 0%, 0.06);
+  color: rgba(0, 0, 0, 0.8);
+  padding: 0.2em 0.5em;
+  border-radius: 2px;
+  font-size: 0.9rem;
+}
+
+.codeBlock {
+  padding: 1rem;
+}
+
+/*
+Common to all classes
+*/
+
+p:not(:last-child),
+.fontSubTitle:not(:last-child),
+.fontHeading:not(:last-child),
+.fontTitle:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+/*!
+ * "Fork me on GitHub" CSS ribbon v0.1.1 | MIT License
+ * https://github.com/simonwhitaker/github-fork-ribbon-css
+*/
+
+/* Left will inherit from right (so we don't need to duplicate code) */
+
+.github-fork-ribbon {
+  /* The right and left classes determine the side we attach our banner to */
+  position: absolute;
+  /* Add a bit of padding to give some substance outside the "stitching" */
+  padding: 2px 0;
+  /* Set the base colour */
+  background-color: #a00;
+  /* Set a gradient: transparent black at the top to almost-transparent black at the bottom */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  /* Add a drop shadow */
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+  /* Set the font */
+  font: 700 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.github-fork-ribbon a,
+.github-fork-ribbon a:hover {
+  /* Set the text properties */
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  /* Set the geometry. If you fiddle with these you'll also need
+     to tweak the top and right values in .github-fork-ribbon. */
+  width: 200px;
+  line-height: 20px;
+  /* Set the layout properties */
+  display: inline-block;
+  padding: 2px 0;
+  /* Add "stitching" effect */
+  border-width: 1px 0;
+  border-style: dotted;
+  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.github-fork-ribbon-wrapper {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.github-fork-ribbon-wrapper.fixed {
+  position: fixed;
+}
+
+.github-fork-ribbon-wrapper.left {
+  left: 0;
+}
+
+.github-fork-ribbon-wrapper.right {
+  right: 0;
+}
+
+.github-fork-ribbon-wrapper.left-bottom {
+  position: fixed;
+  top: inherit;
+  bottom: 0;
+  left: 0;
+}
+
+.github-fork-ribbon-wrapper.right-bottom {
+  position: fixed;
+  top: inherit;
+  bottom: 0;
+  right: 0;
+}
+
+.github-fork-ribbon-wrapper.right .github-fork-ribbon {
+  top: 42px;
+  right: -43px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.github-fork-ribbon-wrapper.left .github-fork-ribbon {
+  top: 42px;
+  left: -43px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.github-fork-ribbon-wrapper.left-bottom .github-fork-ribbon {
+  top: 80px;
+  left: -43px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.github-fork-ribbon-wrapper.right-bottom .github-fork-ribbon {
+  top: 80px;
+  right: -43px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.banner {
+  height: 20rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+}
+
+.github-fork-ribbon {
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid currentcolor;
+  color: white;
+  padding: 0;
+}
+
+.github-fork-ribbon a {
+  color: inherit;
+  padding: 0.3em 0 !important;
+  text-shadow: none !important;
+  border: none !important;
+}
+
+.github-fork-ribbon a:hover {
+  background: white;
+  color: hsl(257, 42%, 40%);
+}
+
+.sciLine {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.sciLine-letter {
+  font-size: 6rem;
+  -webkit-align-self: baseline;
+  -ms-flex-item-align: baseline;
+  align-self: baseline;
+  line-height: 0.75;
+}
+
+.sciLine-words {
+  margin-left: auto;
+  text-align: right;
+  margin-bottom: -0.2em;
+}
+
+.serviceCards {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  word-break: break-word;
+  hyphen: auto;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.serviceCard {
+  min-height: 15rem;
+  background-color: hsl(159, 76%, 43%);
+  color: hsl(0, 100%, 100%);
+  padding: 2rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  border-bottom: 1px solid white;
+  position: relative;
+}
+
+.serviceCard p {
+  border-top: 1px solid white;
+  padding-top: 1rem;
+}
+
+.serviceCard .badge {
+  position: absolute;
+  right: 30px;
+}
+
+@media screen and (min-width: 451px) {
+  .serviceCard {
+    width: 50%;
+    border-right: transparent;
+  }
+
+  .serviceCard:first-child,
+  .serviceCard:nth-child(2n+1) {
+    border-right: 1px solid white;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .serviceCard {
+    width: 15rem;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+  }
+
+  .serviceCard:last-child {
+    border-right: transparent;
+  }
+}
+
+.badge {
+  border-width: 1px;
+  /*display: inline-block;*/
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  border-style: solid;
+  border-color: currentcolor;
+  color: hsla(0, 100%, 100%, 0.6);
+}
+
+@media screen and (min-width: 451px) {
+  .toc {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+.toc {
+  margin: 0 2rem;
+}
+
+.toc-section {
+  margin-top: 2rem;
+}
+
+.toc-section-item a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  padding-left: 0.25em;
+  margin-left: -0.25em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  border-radius: 2px;
+}
+
+.toc-section-title {
+  font-size: 1rem;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.10);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/*.params > *:not(:last-child) {
+  margin-bottom: 1rem;
+}*/
+
+.params p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.param {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.param-name-col {
+  width: 12rem;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.param-summary-col {
+  margin-top: 1rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.themeDark {
+  background: hsl(0, 0%, 19%);
+  color: white;
+}
+
+.themeSecondary {
+  background: hsl(280, 50%, 22%);
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.banner {
+  margin-bottom: 1px;
+}
+
+html {
+  font: 16px/1.33333 sans-serif;
+  color: hsla(0, 0%, 0%, 0.85);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+h2 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.container {
+  margin: 2rem auto;
+  max-width: 40rem;
+}
+
+.route > *:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.route {
+  margin: 2rem;
+  margin-top: 7rem;
+}
+
+.route-head {
+  margin-bottom: 1rem;
+}
+
+.route-head a {
+  margin-bottom: 1em;
+}
+
+.route-head p {
+  white-space: pre-wrap;
+}
+
+a {
+  color: hsl(257, 42%, 40%);
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+  margin-left: -0.5em;
+  display: inline-block;
+}
+
+p {
+  max-width: 40rem;
+}
+
+a:target,
+a:hover {
+  background-color: rgba(83, 59, 145, 0.12);
+}
+
+a:active {
+  color: hsl(0, 90%, 63%) !important;
+  background-color: rgba(246, 76, 76, 0.12) !important;
+}
+
+a:target {
+  outline: none;
+}
+
+.section-head {
+  margin: 2rem;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.10);
+}
+
+.example pre:not(:last-child) {
+  border-bottom: 1px dashed hsl(257, 42%, 40%);
+  border-radius: 0;
+}
+
+.example:not(:last-child) {
+  margin-bottom: 1rem;
+}

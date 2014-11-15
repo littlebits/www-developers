@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Futura Round';
+  src: url('fonts/FuturaRoundLight.eot');
+  src: url('fonts/FuturaRoundLight.eot#iefix') format('embedded-opentype'),
+  url('fonts/FuturaRoundLight.woff') format('woff'),
+  url('fonts/FuturaRoundLight.ttf') format('truetype'),
+  url('fonts/FuturaRoundLight.svg#futura_round_lightregular') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('fonts/FuturaRoundBook.eot');
+  src: url('fonts/FuturaRoundBook.eot#iefix') format('embedded-opentype'),
+  url('fonts/FuturaRoundBook.woff') format('woff'),
+  url('fonts/FuturaRoundBook.ttf') format('truetype'),
+  url('fonts/FuturaRoundBook.svg#futura_round_bookregular') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('fonts/FuturaRoundMedium.eot');
+  src: url('fonts/FuturaRoundMedium.eot?#iefix') format('embedded-opentype'),
+  url('fonts/FuturaRoundMedium.woff') format('woff'),
+  url('fonts/FuturaRoundMedium.ttf') format('truetype'),
+  url('fonts/FuturaRoundMedium.svg#futura_round_mediumregular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('fonts/FuturaRoundDemi.eot');
+  src: url('fonts/FuturaRoundDemi.eot#iefix') format('embedded-opentype'),
+  url('fonts/FuturaRoundDemi.woff') format('woff'),
+  url('fonts/FuturaRoundDemi.ttf') format('truetype'),
+  url('fonts/FuturaRoundDemi.svg#futura_round_demibold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura Round';
+  src: url('fonts/FuturaRoundBold.eot');
+  src: url('fonts/FuturaRoundBold.eot?#iefix') format('embedded-opentype'),
+  url('fonts/FuturaRoundBold.woff') format('woff'),
+  url('fonts/FuturaRoundBold.ttf') format('truetype'),
+  url('fonts/FuturaRoundBold.svg#futura_roundbold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
