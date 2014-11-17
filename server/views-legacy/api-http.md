@@ -297,6 +297,5 @@ POSTed to subscriber:
 
 ## Resources
 
-- There is a [dummy OAuth-client](http://oauth-client.herokuapp.com/) to create access tokens.
 - [auth docs](/api-http/auth)
 - [auth implementation docs](/api-http/auth-implementation)
