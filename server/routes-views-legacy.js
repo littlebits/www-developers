@@ -22,6 +22,11 @@ module.exports = function(server) {
       handler: serve_file_md('api-http.md')
     },
     {
+      path: '/api-http',
+      method: 'get',
+      handler: serve_file_md('api-http.md')
+    },
+    {
       path: '/index',
       method: 'get',
       handler: serve_file_md('index.md')
