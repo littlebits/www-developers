@@ -1,4 +1,4 @@
-# littleBits Cloud http API Documentation
+# littleBits Cloud HTTP API Documentation
 
 ## Authorization
 

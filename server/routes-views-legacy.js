@@ -22,14 +22,24 @@ module.exports = function(server) {
       handler: serve_file_md('api-http.md')
     },
     {
+      path: '/index',
+      method: 'get',
+      handler: serve_file_md('index.md')
+    },
+    {
+      path: '/access',
+      method: 'get',
+      handler: serve_file_md('access.md')
+    },
+    {
       path: '/api-http',
       method: 'get',
       handler: serve_file_md('api-http.md')
     },
     {
-      path: '/index',
+      path: '/api-stream',
       method: 'get',
-      handler: serve_file_md('index.md')
+      handler: serve_file_md('api-stream.md')
     },
     {
       path: '/api-http/auth',
@@ -40,16 +50,6 @@ module.exports = function(server) {
       path: '/api-http/auth-implementation',
       method: 'get',
       handler: serve_file_md('api-authorization-implementation.md')
-    },
-    {
-      path: '/access',
-      method: 'get',
-      handler: serve_file_md('access.md')
-    },
-    {
-      path: '/workshop',
-      method: 'get',
-      handler: serve_file_md('workshop.md')
     }
   ])
 }
