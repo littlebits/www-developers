@@ -1,11 +1,7 @@
 {
-  "name": "littlebits-cloud-api-docs",
   "private": true,
-  "version": "0.0.6",
-  "description": "littleBits Cloud http API Documentation",
-  "main": "boot.js",
-  "engines": {
-    "node": "0.10.x"
+  "napa": {
+    "github-fork-ribbon-css": "simonwhitaker/github-fork-ribbon-css"
   },
   "scripts": {
     "start": "NODE_ENV=production node server",
@@ -16,43 +12,46 @@
     "deploy-stage": "git push git@heroku.com:lbc-developers-stage.git master",
     "api-http-download-options": "http localhost:8000/options > client/api-http-routes.json"
   },
+  "dependencies": {
+    "immutable": "^3.6.2",
+    "normalize.css": "^3.0.2",
+    "suitcss-base": "^0.8.0",
+    "marked": "^0.2.10",
+    "futura-round-family": "git+https://3c028aca202f2af84b9cc23f88b942735f36e41c@github.com/littlebitselectronics/futura-round-family.git",
+    "hapi": "^7.3.0",
+    "debug": "^2.1.1",
+    "suitcss": "^0.6.0",
+    "jade": "^0.35.0",
+    "react": "^0.12.2"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:littlebitselectronics/cloud-api-docs"
   },
+  "name": "littlebits-cloud-api-docs",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "version": "0.1.0",
   "contributors": [
     "Jason Kuhrt <jasonkuhrt@me.com>",
     "Colin Vernon <colin@littlebits.cc>"
   ],
-  "dependencies": {
-    "debug": "^2.1.1",
-    "futura-round-family": "git+https://3c028aca202f2af84b9cc23f88b942735f36e41c@github.com/littlebitselectronics/futura-round-family.git",
-    "hapi": "^7.3.0",
-    "immutable": "^3.6.2",
-    "jade": "^0.35.0",
-    "marked": "^0.2.10",
-    "normalize.css": "^3.0.2",
-    "react": "^0.12.2",
-    "suitcss": "^0.6.0",
-    "suitcss-base": "^0.8.0"
-  },
+  "main": "boot.js",
+  "description": "littleBits Cloud http API Documentation",
   "devDependencies": {
+    "react-hot-loader": "^1.1.1",
+    "file-loader": "^0.8.1",
     "napa": "^1.2.0",
     "node-dev": "~2.1.6",
-    "webpack-dev-server": "^1.7.0",
+    "cssnext-loader": "^0.2.0",
     "webpack": "^1.5.3",
-    "6to5-loader": "^2.0.0",
-    "json-loader": "^0.5.1",
-    "css-loader": "^0.9.1",
-    "file-loader": "^0.8.1",
-    "react-hot-loader": "^1.1.1",
     "style-loader": "^0.8.3",
     "url-loader": "^0.5.5",
+    "json-loader": "^0.5.1",
     "yaml-loader": "^0.1.0",
-    "cssnext-loader": "^0.2.0",
-    "react-hot-loader": "^1.1.1"
-  },
-  "napa": {
-    "github-fork-ribbon-css": "simonwhitaker/github-fork-ribbon-css"
+    "webpack-dev-server": "^1.7.0",
+    "6to5-loader": "^2.0.0",
+    "css-loader": "^0.9.1"
   }
 }
