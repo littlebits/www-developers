@@ -9,7 +9,6 @@ var isProduction = process.env.NODE_ENV === 'production'
 var outputDir = join(__dirname, (isProduction ? './client-dist' : './client-build'))
 var indexEntry = [].concat('./client/index.js').concat(isProduction ? [] : ['webpack/hot/dev-server'])
 var jsLoaders = [].concat(['6to5']).concat(isProduction ? [] : ['react-hot']).reverse()
-var devServer = isProduction ? null : { contentBase: outputDir }
 var devtool = isProduction ? 'source-map' : 'eval'
 
 /* Webpack Config Proper */
@@ -32,5 +31,7 @@ module.exports = {
     ]
   },
   devtool: devtool,
-  devServer: devServer
+  devServer: {
+    contentBase: outputDir
+  }
 }

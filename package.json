@@ -8,6 +8,7 @@
     "dev": "webpack-dev-server --progress --colors --devtool eval --hot",
     "dev-server": "PORT=8100 NODE_ENV=dev node-dev server",
     "build-production": "NODE_ENV=production webpack --optimize-minimize --progress --colors",
+    "build-prod": "npm run build-production",
     "deploy-production": "git push git@heroku.com:littlebits-cloud-developer.git master",
     "deploy-stage": "git push git@heroku.com:lbc-developers-stage.git master",
     "api-http-download-options": "http localhost:8000/options > client/api-http-routes.json"
