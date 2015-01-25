@@ -1,6 +1,4 @@
 var path = require('path')
-var cp = require('child_process')
-var config = require('./config')
 
 
 
@@ -19,7 +17,7 @@ module.exports = function(server){
       method: 'get',
       handler: {
         directory: {
-          path: path.join(__dirname, '../client')
+          path: path.join(__dirname, '../client-dist')
         }
       }
     }
