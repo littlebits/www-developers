@@ -12,9 +12,9 @@ var jsLoaders = [].concat(['6to5']).concat(isProduction ? [] : ['react-hot']).re
 var devServer = isProduction ? null : { contentBase: outputDir }
 var devtool = isProduction ? 'source-map' : 'eval'
 
+/* Webpack Config Proper */
 
-
-var config = {
+module.exports = {
   entry: {
    index: indexEntry
   },
@@ -34,6 +34,3 @@ var config = {
   devtool: devtool,
   devServer: devServer
 }
-
-
-module.exports = config
