@@ -8,8 +8,9 @@
     "node": "0.10.x"
   },
   "scripts": {
-    "start": "NODE_ENV=production node server",
-    "build-client": "duo --use duo-6to5,duo-yaml --root client index.css index.js build && myth client/build/index.css client/build/index.css"
+    "dev": "webpack-dev-server --progress --colors --devtool eval --hot",
+    "build-production": "NODE_ENV=production webpack --optimize-minimize --progress --colors",
+    "start": "NODE_ENV=production node server"
   },
   "repository": {
     "type": "git",
@@ -20,15 +21,34 @@
     "Colin Vernon <colin@littlebits.cc>"
   ],
   "dependencies": {
-    "duo": "^0.8.10",
-    "duo-6to5": "0.0.1",
-    "duo-yaml": "0.0.1",
+    "debug": "^2.1.1",
+    "futura-round-family": "git+https://3c028aca202f2af84b9cc23f88b942735f36e41c@github.com/littlebitselectronics/futura-round-family.git",
     "hapi": "^7.3.0",
+    "immutable": "^3.6.2",
     "jade": "^0.35.0",
-    "marked": "~0.2.10",
-    "myth": "^1.2.1"
+    "marked": "^0.2.10",
+    "normalize.css": "^3.0.2",
+    "react": "^0.12.2",
+    "suitcss": "^0.6.0",
+    "suitcss-base": "^0.8.0"
   },
   "devDependencies": {
-    "node-dev": "~2.1.6"
+    "napa": "^1.2.0",
+    "node-dev": "~2.1.6",
+    "webpack-dev-server": "^1.7.0",
+    "webpack": "^1.5.3",
+    "6to5-loader": "^2.0.0",
+    "json-loader": "^0.5.1",
+    "css-loader": "^0.9.1",
+    "file-loader": "^0.8.1",
+    "react-hot-loader": "^1.1.1",
+    "style-loader": "^0.8.3",
+    "url-loader": "^0.5.5",
+    "yaml-loader": "^0.1.0",
+    "cssnext-loader": "^0.2.0",
+    "react-hot-loader": "^1.1.1"
+  },
+  "napa": {
+    "github-fork-ribbon-css": "simonwhitaker/github-fork-ribbon-css"
   }
 }

@@ -1,6 +1,6 @@
 var { ELEM, asCurl } = require('../utils')
-var r = require('reactjs/react-bower:react-with-addons.js')
-var { List, Map } = require('facebook/immutable-js@3.1.0:dist/immutable.js')
+var r = require('react')
+var { List, Map } = require('immutable')
 var apiHttpRoot = 'https://api-http.littlebitscloud.cc'
 
 var e = r.DOM

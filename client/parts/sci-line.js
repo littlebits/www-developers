@@ -1,4 +1,4 @@
-var r = require('reactjs/react-bower:react-with-addons.js')
+var r = require('react')
 var e = r.DOM
 var t = r.PropTypes
 

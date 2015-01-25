@@ -1,5 +1,5 @@
-var React = require('reactjs/react-bower:react-with-addons.js')
-var { fromJS } = require('facebook/immutable-js@3.1.0:dist/immutable.js')
+var React = require('react')
+var { fromJS } = require('immutable')
 var routesData = require('./data-routes')
 var locals = fromJS(require('./data-locals.yaml'))
 var { ELEM } = require('./utils')
