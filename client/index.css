@@ -1,5 +1,5 @@
-@import 'suitcss/base';
-@import 'littlebitselectronics/futura-round-family';
+@import 'suitcss-base';
+@import 'futura-round-family';
 @import './parts/vars';
 @import './parts/font';
 @import './parts/banner';

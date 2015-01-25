@@ -1,4 +1,4 @@
-var {createFactory, createClass, DOM} = require('reactjs/react-bower:react-with-addons.js')
+var {createFactory, createClass, DOM} = require('react')
 
 
 

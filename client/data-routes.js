@@ -2,8 +2,8 @@
 /* Build routes data. Combine machine-generated data from the HTTP API
 with hand-written data from our docs file. */
 
-var debug = require('visionmedia/debug')('www-developers')
-var { fromJS } = require('facebook/immutable-js@3.1.0:dist/immutable.js')
+var debug = require('debug')('www-developers')
+var { fromJS } = require('immutable')
 var routesMachine = fromJS(require('./data-routes.json'))
 var routesMeta = fromJS(require('./data-routes.yaml'))
 

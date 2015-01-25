@@ -1,4 +1,6 @@
-var r = require('reactjs/react-bower:react-with-addons.js')
+var css = require('./index.css')
+var r = require('react')
+
 var App = require('./app')
 var $ = document.querySelector.bind(document)
 
@@ -11,7 +13,7 @@ bootstrap(App)
 
 // Helpers
 
-function bootstrap(app, selector = '#app-container'){
+function bootstrap(app, selector = '#app-container') {
   document.addEventListener('DOMContentLoaded', function(){
     r.render(r.createElement(app), $(selector))
   })

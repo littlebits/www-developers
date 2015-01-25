@@ -1,5 +1,5 @@
-var r = require('reactjs/react-bower:react-with-addons.js')
-var { List } = require('facebook/immutable-js@3.1.0:dist/immutable.js')
+var r = require('react')
+var { List } = require('immutable')
 var { ELEM } = require('../utils')
 
 
