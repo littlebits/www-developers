@@ -1,10 +1,7 @@
 {
   "private": true,
-  "napa": {
-    "github-fork-ribbon-css": "simonwhitaker/github-fork-ribbon-css"
-  },
   "scripts": {
-    "start": "NODE_ENV=production node server",
+    "start": "NODE_ENV=production node-dev server",
     "dev": "webpack-dev-server --progress --colors --devtool eval --hot",
     "dev-server": "PORT=8100 NODE_ENV=dev node-dev server",
     "build-production": "NODE_ENV=production webpack --optimize-minimize --progress --colors",
@@ -43,7 +40,6 @@
   "devDependencies": {
     "react-hot-loader": "^1.1.1",
     "file-loader": "^0.8.1",
-    "napa": "^1.2.0",
     "node-dev": "~2.1.6",
     "cssnext-loader": "^0.2.0",
     "webpack": "^1.5.3",
