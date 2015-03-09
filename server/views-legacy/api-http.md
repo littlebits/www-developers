@@ -1,5 +1,10 @@
 # littleBits Cloud HTTP API Documentation
 
+## Getting Started
+
+A great to start is the [API lessons](https://github.com/littlebits/cloud-api-lessons) we’ve put together. They lay out how to get up and running in a step-by-step way, using just `curl` in your terminal.
+
+
 ## Authorization
 
 Authorization is a standard OAuth 2 system.
@@ -13,7 +18,9 @@ Example:
 * [Find out how to get your access token here.](/access)
 * [Auth resources](#resources)
 
+
 ## Version
+
 Available versions are:
 
 - master [default]
