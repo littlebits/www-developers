@@ -54,7 +54,7 @@ let resolvePath = (path, pathArgs) => (
 let dataFlag = (data) => (
   typeof data === 'object' && Object.keys(data).length
   ?
-  ` \
+  ` \\
      --data '${JSON.stringify(data)}'`
   : ''
 )
