@@ -1,29 +1,27 @@
 {
   "private": true,
-  "napa": {
-    "github-fork-ribbon-css": "simonwhitaker/github-fork-ribbon-css"
-  },
   "scripts": {
     "start": "NODE_ENV=production node server",
-    "dev": "webpack-dev-server --progress --colors --devtool eval --hot",
-    "dev-server": "PORT=8100 NODE_ENV=dev node-dev server",
-    "build-production": "NODE_ENV=production webpack --optimize-minimize --progress --colors",
+    "dev": "NODE_ENV=development webpack-dev-server --progress --devtool eval --hot",
+    "dev-server": "PORT=8100 NODE_ENV=dev nodemon server",
+    "build-production": "NODE_ENV=production webpack --optimize-minimize --progress",
     "build-prod": "npm run build-production",
     "deploy-production": "git push git@heroku.com:littlebits-cloud-developer.git master",
     "deploy-stage": "git push git@heroku.com:lbc-developers-stage.git master",
     "api-http-download-options": "http localhost:8000/options > client/api-http-routes.json"
   },
   "dependencies": {
-    "immutable": "^3.6.2",
-    "normalize.css": "^3.0.2",
-    "suitcss-base": "^0.8.0",
-    "marked": "^0.2.10",
+    "debug": "^2.1.1",
     "futura-round-family": "git+https://3c028aca202f2af84b9cc23f88b942735f36e41c@github.com/littlebitselectronics/futura-round-family.git",
     "hapi": "^7.3.0",
-    "debug": "^2.1.1",
-    "suitcss": "^0.6.0",
+    "immutable": "^3.6.2",
     "jade": "^0.35.0",
-    "react": "^0.12.2"
+    "marked": "^0.2.10",
+    "normalize.css": "^3.0.2",
+    "react": "^0.13.3",
+    "react-github-fork-ribbon": "^0.4.1",
+    "suitcss": "^0.6.0",
+    "suitcss-base": "^0.8.0"
   },
   "repository": {
     "type": "git",
@@ -41,18 +39,17 @@
   "main": "boot.js",
   "description": "littleBits Cloud http API Documentation",
   "devDependencies": {
-    "react-hot-loader": "^1.1.1",
-    "file-loader": "^0.8.1",
-    "napa": "^1.2.0",
-    "node-dev": "~2.1.6",
-    "cssnext-loader": "^0.2.0",
-    "webpack": "^1.5.3",
-    "style-loader": "^0.8.3",
-    "url-loader": "^0.5.5",
-    "json-loader": "^0.5.1",
-    "yaml-loader": "^0.1.0",
-    "webpack-dev-server": "^1.7.0",
-    "6to5-loader": "^2.0.0",
-    "css-loader": "^0.9.1"
+    "babel-core": "^5.8.24",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.18.0",
+    "cssnext-loader": "^1.0.1",
+    "file-loader": "^0.8.4",
+    "json-loader": "^0.5.2",
+    "react-hot-loader": "^1.3.0",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.1",
+    "webpack-dev-server": "^1.10.1",
+    "yaml-loader": "^0.1.0"
   }
 }

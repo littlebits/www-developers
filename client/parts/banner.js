@@ -1,28 +1,23 @@
-var r = require('react')
-var e = r.DOM
+import R, { DOM as E} from 'react'
+import GithubForkClass from 'react-github-fork-ribbon'
+
+let GithubFork = R.createFactory(GithubForkClass)
 
 
 
-
-module.exports = r.createFactory(r.createClass({
+export default R.createFactory(R.createClass({
   displayName: 'banner',
-  render: function() {
-    return e.
+  render() {
+    return E.
     div({ className: 'banner themeDark' },
-      githubRibbon({ href: 'https://github.com/littlebits/www-developers' }),
-      e.h1({className: 'fontHeading'}, 'littleBits Cloud Platform'))
-  }
-}))
-
-
-
-var githubRibbon = r.createFactory(r.createClass({
-  displayName: 'github-ribbon',
-  render: function() {
-    return e.
-    div({ className: 'github-fork-ribbon-wrapper right'},
-      e.div({ className: 'github-fork-ribbon' },
-        e.a({ href: this.props.href }, 'Fork me on Github')
+      GithubFork({
+        href: 'https://github.com/littlebits/www-developers',
+        position: 'right',
+        color: 'black',
+        children: 'Fork me on Github'
+      }),
+      E.h1({ className: 'fontHeading' },
+        'littleBits Cloud Platform'
       )
     )
   }
