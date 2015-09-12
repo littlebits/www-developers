@@ -29,7 +29,7 @@
   },
   "name": "littlebits-cloud-api-docs",
   "engines": {
-    "node": "0.10.x"
+    "node": "0.12.x"
   },
   "version": "0.1.0",
   "contributors": [
