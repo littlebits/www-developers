@@ -79,8 +79,9 @@ let asCurl = ({ root, path, pathArgs, method, query, body, version, token }) => 
   pathArgs = pathArgs || {}
   var uri = root + resolvePath(path, pathArgs) + stringifyQuery(query)
   return `
-curl -X${method} ${uri} \
-     -H 'Authorization: Bearer ${token}' \
+curl -X${method} ${uri} \\
+     -H 'Authorization: Bearer ${token}' \\
+     -H 'Content-Type: application/json' \\
      -H 'Accept: application/vnd.littlebits.v${version}+json'${dataFlag(body)}`
 }
 
