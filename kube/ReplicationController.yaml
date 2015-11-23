@@ -4,7 +4,7 @@ metadata:
   name: www-developers
   labels:
     app: www-developers
-    version: 0.2.0-rc1
+    version: 0.2.0
 spec:
   template:
     metadata:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: www-developers
-          image: gcr.io/littlebits-electronics/www-developers:v0.2.0-rc1
+          image: gcr.io/littlebits-electronics/www-developers:v0.2.0
           ports:
             - name: www-developers
               containerPort: 80
