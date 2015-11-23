@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "debug": "^2.1.1",
-    "futura-round-family": "git+https://3c028aca202f2af84b9cc23f88b942735f36e41c@github.com/littlebitselectronics/futura-round-family.git",
     "hapi": "^7.3.0",
     "immutable": "^3.6.2",
     "jade": "^0.35.0",
@@ -22,6 +21,9 @@
     "react-github-fork-ribbon": "^0.4.1",
     "suitcss": "^0.6.0",
     "suitcss-base": "^0.8.0"
+  },
+  "optionalDependencies": {
+    "@littlebits/asset-font-futura-round": "^3.0.0",
   },
   "repository": {
     "type": "git",
