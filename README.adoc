@@ -1,0 +1,15 @@
+# littleBits Cloud Platform Developers
+
+## Developing
+
+#### Install
+
+```
+git clone git@github.com:littlebits/www-developers.git \
+&& cd www-developers \
+&& npm install
+```
+
+#### Tasks
+
+See `npm run`.
