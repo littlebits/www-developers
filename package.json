@@ -23,7 +23,7 @@
     "suitcss-base": "^0.8.0"
   },
   "optionalDependencies": {
-    "@littlebits/asset-font-futura-round": "^3.0.0",
+    "@littlebits/asset-font-futura-round": "^3.0.0"
   },
   "repository": {
     "type": "git",
