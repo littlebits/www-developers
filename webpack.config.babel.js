@@ -1,10 +1,10 @@
 import { join } from 'path'
 
-let path = join.bind(null, __dirname)
+const path = join.bind(null, __dirname)
 
 
 
-let isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production'
 let indexEntry = ['./client/index.js']
 let outputDir = path('./client-build')
 let jsLoaders = ['babel']
